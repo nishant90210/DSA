@@ -36,10 +36,11 @@ public class RemoveDuplicates {
 	}
 
 	private static void removeDup(Integer[] arr){
+
 		ArrayList<Integer> primes = new ArrayList<Integer>(Arrays.asList(arr));
 		int len = primes.size();
 		for (int i = 0; i < len; i++) {
-			Integer x = (Integer)primes.get(i);
+			Integer x = primes.get(i);
 			for(int j=i+1;j<len;j++){
 				if(x.equals(primes.get(j))){
 					System.out.println(x + "removed");

@@ -1,5 +1,9 @@
 package LinkedList;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 /**
  * Created by NISHANT on 8/17/17.
  */
@@ -37,7 +41,7 @@ public class SortedMergeLL {
             System.out.println("Empty List");
         }else {
             while (node != null){
-                System.out.println(node.data);
+                System.out.print(node.data + " ");
                 node = node.next;
             }
         }

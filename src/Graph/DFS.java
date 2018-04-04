@@ -31,14 +31,27 @@ public class DFS {
         System.out.println("Following is Depth First Traversal (starting from vertex 2)");
 
 //        dfs.printDFSStack(2);
-        dfs.printDFS(2);
+        dfs.printDFSRecursive(2);
 
     }
 
-    private void printDFS(int start) {
+    private void printDFSRecursive(int start) {
 
-
+        boolean[] visited = new boolean[vertices];
+        DFSUtils(start, visited);
     }
+
+    private void DFSUtils(int start, boolean[] visited) {
+
+        visited[start] = true;
+        System.out.print(start + " ");
+        for (Integer adjNode : adj[start]) {
+            if (!visited[adjNode]) {
+                DFSUtils(adjNode, visited);
+            }
+        }
+    }
+
 
 //    private void printDFSStack(int start) {
 //
@@ -60,7 +73,7 @@ public class DFS {
 
 
 //    // The function to do DFS traversal. It uses recursive DFSUtil()
-//    private void printDFS(int start) {
+//    private void printDFSRecursive(int start) {
 //
 //        // Mark all the vertices as not visited(set as false by default in java)
 //        Boolean[] visited = new Boolean[vertices];
@@ -69,7 +82,7 @@ public class DFS {
 //
 //    }
 //
-//    // A function used by printDFS
+//    // A function used by printDFSRecursive
 //    private void dfs(int start, Boolean[] visited) {
 //
 //        // Mark the current node as visited and print it

@@ -14,11 +14,11 @@ public class SieveOfEratosthenes {
         System.out.print("Following are the prime numbers ");
         System.out.println("smaller than or equal to " + n);
         SieveOfEratosthenes g = new SieveOfEratosthenes();
-//        Map<Integer, Integer> map = g.sieveOfEratosthenesMap(n);
-//        for (Map.Entry entry : map.entrySet()){
-//            System.out.print(" " + entry.getKey());
-//        }
-        g.sieveOfEratosthenes(n);
+        Map<Integer, Integer> map = g.sieveOfEratosthenesMap(n);
+        for (Map.Entry entry : map.entrySet()){
+            System.out.print(" " + entry.getKey());
+        }
+//        g.sieveOfEratosthenes(n);
     }
 
     private void sieveOfEratosthenes(int n){

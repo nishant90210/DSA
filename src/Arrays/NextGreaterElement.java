@@ -10,8 +10,8 @@ public class NextGreaterElement {
     public static void main(String[] args) {
 
         int[] arr = {5,3,2,10,6,8,1,4,12,7,4};
-//        nextGreaterElement(arr);
-        nextGreaterElementStack(arr);
+        nextGreaterElement(arr);
+//        nextGreaterElementStack(arr);
     }
 
     private static void nextGreaterElement(int[] arr) {

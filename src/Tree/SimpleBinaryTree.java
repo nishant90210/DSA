@@ -39,6 +39,7 @@ class SimpleBinaryTree {
     }
 
     public SimpleBinaryTree() {
+
         this.root = null;
     }
 
