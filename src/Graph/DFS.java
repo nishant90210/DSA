@@ -71,34 +71,6 @@ public class DFS {
 //        }
 //    }
 
-
-//    // The function to do DFS traversal. It uses recursive DFSUtil()
-//    private void printDFSRecursive(int start) {
-//
-//        // Mark all the vertices as not visited(set as false by default in java)
-//        Boolean[] visited = new Boolean[vertices];
-//        // Call the recursive helper function to print DFS traversal
-//        dfs(start, visited);
-//
-//    }
-//
-//    // A function used by printDFSRecursive
-//    private void dfs(int start, Boolean[] visited) {
-//
-//        // Mark the current node as visited and print it
-//        visited[start] = true;
-//        System.out.print(start+" ");
-//
-//        // Recur for all the vertices adjacent to this vertex
-//        Iterator<Integer> i = adj[start].listIterator();
-//        while (i.hasNext()) {
-//            int n = i.next();
-//            if (!visited[n]){
-//                dfs(n, visited);
-//            }
-//        }
-//    }
-
     private void addEdge(int src, int dest) {
 
         adj[src].add(dest);

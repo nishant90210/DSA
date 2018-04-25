@@ -9,7 +9,6 @@ public class LeafTraversal {
 
     public static void main(String[] args)
     {
-        // Let us create trees in above example 1
         Node root1 = new Node(0);
         root1.left = new Node(1);
         root1.right = new Node(2);

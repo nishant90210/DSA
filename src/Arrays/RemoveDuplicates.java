@@ -9,10 +9,25 @@ public class RemoveDuplicates {
 
 	public static void main(String[] args) {
 
-		int arr[] = {3, 5, 7, 2, 2, 5, 7, 7};
+//		int arr[] = {3, 5, 7, 2, 2, 5, 7, 7};
+		int arr[] = {1, 2, 2, 3, 4, 4, 4, 5, 5};
 //		removeDup(arr);
-		removeDuplicates(arr);
+//		removeDuplicates(arr);
 
+	}
+
+	static int removeDuplicatesForSortedArray(int arr[], int n)
+	{
+		int j = 0;
+		if (n == 0 || n == 1)
+			return n;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] != arr[i+1]){
+
+			}
+		}
+
+		return j;
 	}
 
 	private static void removeDuplicates(int[] arr) {

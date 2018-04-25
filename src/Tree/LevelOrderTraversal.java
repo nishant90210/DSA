@@ -22,11 +22,11 @@ public class LevelOrderTraversal {
 
         //Stop the loop and enter the value of i for printing all nodes at distance k from a given node and perform a check if i == 0.
         for (int i = 1; i <= level; i++) {
-//            printGivenLevel(binaryTree.root, i);
-//            System.out.println("");
+            printGivenLevel(binaryTree.root, i);
+            System.out.println("");
         }
         System.out.println();
-        levelOrder1Queues(binaryTree.root);
+//        levelOrder1Queues(binaryTree.root);
     }
 
     private static void printGivenLevel(Node root, int level) {

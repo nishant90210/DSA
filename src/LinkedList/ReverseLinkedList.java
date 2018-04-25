@@ -36,6 +36,7 @@ public class ReverseLinkedList {
 
         Node node = reverseLinkedList.reverseLinkedList(reverseLinkedList.head);
 
+        System.out.println();
         System.out.println(":Elements After reversing the Linked List : ");
         reverseLinkedList.printList(node);
 //        while (node != null){
@@ -67,7 +68,7 @@ public class ReverseLinkedList {
             System.out.println("Empty List");
         }else {
             while (node != null){
-                System.out.println(node.data);
+                System.out.print(node.data + " ");
                 node = node.next;
             }
         }

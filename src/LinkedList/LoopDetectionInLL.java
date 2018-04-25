@@ -64,6 +64,18 @@ public class LoopDetectionInLL {
                     break;
                 }
             }
+            if (slow_pointer == fast_pointer)  //if condition executed if loop exist
+            {
+                slow_pointer = head;
+                while (slow_pointer != fast_pointer.next)
+                {
+                    slow_pointer = slow_pointer.next;
+                    fast_pointer = fast_pointer.next;
+                }
+
+                fast_pointer.next = null; // removing loop
+
+            }
         }
     }
 
@@ -71,20 +83,29 @@ public class LoopDetectionInLL {
 
         LoopDetectionInLL llist = new LoopDetectionInLL();
 
-        llist.head = new Node(1);
-        Node secondNode = new Node(2);
-        Node thirdNode = new Node(3);
-        Node fourthNode = new Node(4);
-        Node fifthNode = new Node(5);
-        Node sixthNode = new Node(6);
-        Node seventhNode = new Node(7);
+        llist.head = new Node(50);
+        llist.head.next = new Node(20);
+        llist.head.next.next = new Node(15);
+        llist.head.next.next.next = new Node(4);
+        llist.head.next.next.next.next = new Node(10);
 
-        llist.head.next = secondNode;
-        secondNode.next = thirdNode;
-        thirdNode.next = fourthNode;
-        fourthNode.next = fifthNode;
-        fifthNode.next = sixthNode;
-        sixthNode.next = seventhNode;
+        llist.head.next.next.next.next.next = llist.head.next.next;
+
+
+//        llist.head = new Node(1);
+//        Node secondNode = new Node(2);
+//        Node thirdNode = new Node(3);
+//        Node fourthNode = new Node(4);
+//        Node fifthNode = new Node(5);
+//        Node sixthNode = new Node(6);
+//        Node seventhNode = new Node(7);
+//
+//        llist.head.next = secondNode;
+//        secondNode.next = thirdNode;
+//        thirdNode.next = fourthNode;
+//        fourthNode.next = fifthNode;
+//        fifthNode.next = sixthNode;
+//        sixthNode.next = seventhNode;
 
 //        llist.push(20);
 //        llist.push(4);
@@ -95,5 +116,6 @@ public class LoopDetectionInLL {
 //        llist.head.next.next.next.next = llist.head;
 //        llist.printList();
         llist.detectLoop();
+        llist.printList();
     }
 }

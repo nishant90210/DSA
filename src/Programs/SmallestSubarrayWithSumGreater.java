@@ -9,8 +9,8 @@ public class SmallestSubarrayWithSumGreater {
     {
 //        int arr[] = {2, 3, 1, 1, -1, 3, 4};
 //        int target = 7;
-        int arr[] = {1, 2, 3, 4, 5};
-        int target = 15;
+        int arr[] = {1, 2, 3, 4};
+        int target = 6;
 //        int arr[] = {1, 4, 4};
 //        int target = 4;
 //        int arr[] = {2,3,1,2,4,3};

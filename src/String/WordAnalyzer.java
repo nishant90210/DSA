@@ -12,7 +12,7 @@ public class WordAnalyzer {
 	{
 			String [] words;
             HashMap<String,Integer> hashMap = new HashMap<>();
-			FileReader fr = new FileReader("/Users/nishant/Desktop/count");
+			FileReader fr = new FileReader("/Users/b0095748/Desktop/count");
 			BufferedReader br = new BufferedReader(fr);
 			String line = null;
 			while((line=br.readLine())!=null){

@@ -43,6 +43,9 @@ public class DiagonalTraversal {
         }
         valueMap.put(d, keyVal);
 
+        /* d will increment by 1 i.e. d = d + 1, only for the left child
+        * and will remain same as of the parent i.e. d = d of parent for every right child
+        * SO the same value of d will correspond to the same diagonal*/
         diagonalTraversal(d+1, valueMap, root.left);
         diagonalTraversal(d, valueMap, root.right);
     }

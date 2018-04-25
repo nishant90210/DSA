@@ -5,7 +5,7 @@ package Threads;
  */
 public class EvenOddUsingWaitNotify {
 
-    private  static boolean odd = true;
+    private static boolean odd = true;
     private static int count = 1;
 
     public static void main(String[] args) throws InterruptedException {
@@ -15,71 +15,58 @@ public class EvenOddUsingWaitNotify {
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                evenOdd.printEven();
+                evenOdd.printOdd();
             }
         });
 
         Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                evenOdd.printOdd();
+                evenOdd.printEven();
             }
         });
 
         t1.start();
         Thread.sleep(1000);
         t2.start();
+    }
 
-        try {
-            t1.join();
-            t2.join();
-        }catch (InterruptedException e){
-            e.printStackTrace();
+    private void printOdd() {
+
+        synchronized (this){
+            while (count < 11){
+                if (odd){
+                        System.out.println(Thread.currentThread().getName() + " ODD " + count);
+                        count++;
+                        odd = false;
+                        notify();
+                }else {
+                    try {
+                        wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
     }
 
     private void printEven() {
 
         synchronized (this){
-            while (count < 10){
-//                System.out.println("Inside print EVEN");
-                while (odd){
+            while (count < 11){
+                if (!odd){
+                        System.out.println(Thread.currentThread().getName() + " EVEN " + count);
+                        count++;
+                        odd = true;
+                        notify();
+                }else {
                     try {
-//                        System.out.println("Even waiting " + count);
                         wait();
-//                        System.out.println("Notified Even :" + count);
-                    } catch (InterruptedException e){
-                        e.printStackTrace();
-                    }
-                }
-                System.out.println("Even Thread :" + count);
-                count++;
-                odd = true;
-                notify();
-            }
-        }
-    }
-
-    public void printOdd() {
-
-        synchronized (this) {
-            while (count < 10) {
-//                System.out.println("Inside print ODD");
-
-                while (!odd) {
-                    try {
-//                        System.out.println("Odd waiting: " + count);
-                        wait();
-//                        System.out.println("Notified odd:" + count);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
-                System.out.println("Odd thread :" + count);
-                count++;
-                odd = false;
-                notify();
-
             }
         }
     }

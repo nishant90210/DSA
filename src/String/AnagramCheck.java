@@ -67,7 +67,7 @@ public class AnagramCheck {
 			if(index == -1){
 				return false;
 			}else{
-				anagram = (anagram.substring(0, index) + anagram.substring(index + 1, anagram.length()));
+				anagram = ((anagram.substring(0, index)) + anagram.substring(index+1, anagram.length()));
 			}
 		}
 		return anagram.isEmpty();

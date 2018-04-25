@@ -29,8 +29,8 @@ public class VerticalTraversal {
         root.left.right = new Node(5);
         root.right.left = new Node(6);
         root.right.right = new Node(7);
-//        root.right.left.right = new Node(8);
-//        root.right.right.right = new Node(9);
+        root.right.left.right = new Node(8);
+        root.right.right.right = new Node(9);
 
         TreeMap<Integer, Vector<Integer>> valueMap = new TreeMap<>();
         System.out.println("vertical order traversal is :");
@@ -38,7 +38,8 @@ public class VerticalTraversal {
         for (Map.Entry entry : valueMap.entrySet()){
             //This step is for top view of a Tree else just loop through entry.getValue();
             Vector value = (Vector)  entry.getValue();
-            System.out.println("key -> " + entry.getKey() + " value -> " + value.get(value.size()-1));
+            System.out.print(value.get(0) + " ");
+//            System.out.println("key -> " + entry.getKey() + " value -> " + value.get(value.size()-1));
         }
     }
 

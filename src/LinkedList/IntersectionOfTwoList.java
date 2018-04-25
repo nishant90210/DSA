@@ -3,6 +3,7 @@ package LinkedList;
 /**
  * Created by NISHANT on 11/15/17.
  */
+// https://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/
 public class IntersectionOfTwoList {
 
     public static void main(String[] args) {
@@ -29,7 +30,9 @@ public class IntersectionOfTwoList {
 
         int list1Length = getLength(list1);
         int list2Length = getLength(list2);
+        // Calculate the absolute difference betwwen the 2 list
         int difference = Math.abs(list1Length-list2Length);
+
         if (list1Length > list2Length){
             while (difference > 0 ){
                 list1 = list1.next;

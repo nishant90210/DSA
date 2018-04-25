@@ -42,18 +42,18 @@ public class BTreeFromInorder {
         return index;
     }
 
-    private static int findMax(int arr[], int strt, int end)
+    private static int findMax(int arr[], int start, int end)
     {
-        int i, max = arr[strt], maxind = strt;
-        for (i = strt + 1; i <= end; i++)
+        int i, max = arr[start], maxInd = start;
+        for (i = start + 1; i <= end; i++)
         {
             if (arr[i] > max)
             {
                 max = arr[i];
-                maxind = i;
+                maxInd = i;
             }
         }
-        return maxind;
+        return maxInd;
     }
 
     private static void inOrderTraversal(Node node) {
