@@ -10,15 +10,17 @@ public class KthLargest {
     public static void main(String[] args) {
 
         KthLargest kth = new KthLargest();
-        int[] array = {6, 12, 5, 26, 7, 14, 3, 9, 2};
+        int[] array = {24,2,45,20,56,81,75};
+        //             2 20 24 45 56 75 81
         int length = array.length;
+        System.out.println(length);
         int k = 3;
-//        int quicksort = kth.quicksort(array, 0, length - 1, k);
-//        System.out.println(quicksort);
+        int quicksort = kth.quicksort(array, 0, length - 1, length-k+1);
+        System.out.println(quicksort);
 
         //Using Priority Queue
-        int kthLargest = kthLargestPQueue(array, k);
-        System.out.println(kthLargest);
+//        int kthLargest = kthLargestPQueue(array, k);
+//        System.out.println(kthLargest);
     }
 
     private static int kthLargestPQueue(int[] array, int k) {

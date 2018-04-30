@@ -7,11 +7,12 @@ public class MissingNumberInArray {
 
     public static void main(String args[])
     {
-        int a[] = {1,2,4,5,6};
+        int a[] = {1,2,3,5};
         int length = a.length;
         int miss = getMissingNoBySum(a, length);
-        int missXor = getMissingNoBySumXOR(a, 6);
-        System.out.println(missXor);
+//        int missXor = getMissingNoBySumXOR(a, 6);
+        System.out.println(miss);
+//        System.out.println(missXor);
     }
 
     private static int getMissingNoBySumXOR(int[] a, int range) {
@@ -28,11 +29,10 @@ public class MissingNumberInArray {
 
     private static int getMissingNoBySum(int[] a, int n) {
 
-        int total = 0;
-        int sum = ((n) * (n + 1)) / 2;
+        int total = ((n+1) * (n + 2)) / 2;
         for (int i = 0; i < n; i++) {
-            total += a[i];
+            total -= a[i];
         }
-        return total-sum;
+        return total;
     }
 }

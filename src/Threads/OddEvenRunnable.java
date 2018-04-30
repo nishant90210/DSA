@@ -6,7 +6,7 @@ package Threads;
 public class OddEvenRunnable implements Runnable{
 
     public int PRINT_NUMBERS_UPTO=10;
-    static int  number=1;
+    static int  number = 1;
     int remainder;
     static Object lock = new Object();
 
