@@ -24,21 +24,22 @@ public class Lilliput {
                 {"Go, Dog. Go", "user1"},
                 {"Go, Dog. Go", "user2"},
         };
-        mainCode(map, booksRequests);
+        findUser(map, booksRequests);
     }
 
-    private static void mainCode(HashMap<String, Integer> map, String[][] booksRequests) {
-        for (int i = 0; i < booksRequests.length; i++) {
-            int count=0;
-            if (map.containsKey(booksRequests[i][0])){
-                count = map.get(booksRequests[i][0]);
-            }
-            count++;
-            map.put(booksRequests[i][0], count);
-        }
+    private static void findUser(HashMap<String, Integer> bookMap, String[][] booksRequests) {
 
-        for (Map.Entry entry : map.entrySet()){
-            System.out.println(entry.getKey() + " " + entry.getValue() + " users");
+        Integer count = 1;
+        for(int i=0; i< booksRequests.length; i++){
+            if (!bookMap.containsKey(booksRequests[i][0])){
+                bookMap.put(booksRequests[i][0], count);
+            }else{
+                count = bookMap.get(booksRequests[i][0]);
+                bookMap.put(booksRequests[i][0], count+1);
+            }
+        }
+        for (Map.Entry map : bookMap.entrySet()) {
+            System.out.println(map.getKey() + " " + map.getValue());
         }
     }
 }
