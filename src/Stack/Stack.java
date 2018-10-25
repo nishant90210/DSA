@@ -37,6 +37,7 @@ public class Stack {
     {
         return (top < 0);
     }
+
     Stack()
     {
         top = -1;
