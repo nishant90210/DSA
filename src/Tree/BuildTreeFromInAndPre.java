@@ -3,14 +3,14 @@ package Tree;
 /**
  * Created by NISHANT on 10/5/17.
  */
-public class BuildTree {
+public class BuildTreeFromInAndPre {
 
     private static int pIndex = 0;
     public static void main(String[] args) {
 
         int in[] = {4, 2, 5, 1, 3, 6};
         int pre[] =  {1, 2, 4, 5, 3, 6};
-        BuildTree buildBST = new BuildTree();
+        BuildTreeFromInAndPre buildBST = new BuildTreeFromInAndPre();
         Node node = buildBST.buildTree(in, pre, 0, in.length - 1);
         buildBST.printInOrder(node);
         System.out.println();
