@@ -25,11 +25,11 @@ public class MergeOverlappingArrays {
     public static void main(String[] args)
     {
         List<Interval> intervals = Arrays.asList(new Interval(4, 6),
-                                                    new Interval(2, 3),
-                                                    new Interval(1, 5),
-                                                    new Interval(7, 8),
-                                                    new Interval(8, 10),
-                                                    new Interval(12, 15));
+                new Interval(2, 3),
+                new Interval(1, 5),
+                new Interval(7, 8),
+                new Interval(8, 10),
+                new Interval(12, 15));
         Collections.sort(intervals, (a, b) -> a.begin-b.begin);
         List<Interval> interval = mergeIntervals(intervals);
         for (Interval interval1 : interval) {

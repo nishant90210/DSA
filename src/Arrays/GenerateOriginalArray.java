@@ -19,7 +19,7 @@ public class GenerateOriginalArray {
 
     public static int[] generate(int[] input) {
         int[] result = new int[input.length];
-        ArrayList<Integer> remain = new ArrayList<Integer>();
+        ArrayList<Integer> remain = new ArrayList<>();
         for(int i = 0; i < input.length; i++) {
             remain.add(input.length - i);
         }

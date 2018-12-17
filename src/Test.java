@@ -1,3 +1,6 @@
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -51,11 +54,14 @@ public class Test {
 
     public static void main(String[] args) {
 
-        int a = 10;
-        while (a<20){
-            ++a;
-            System.out.println(a);
-        }
+//        int a = 10;
+//        while (a<20){
+//            ++a;
+//            System.out.println(a);
+//        }
+
+        String cronTiming = "*/15 7-22 * * *";
+
     }
 
 }

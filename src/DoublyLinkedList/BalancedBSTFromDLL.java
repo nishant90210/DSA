@@ -24,7 +24,7 @@ public class BalancedBSTFromDLL {
         int rootElement = searchLLMid(llist);
         Node node = new Node(rootElement);
         root = node;
-        balancedBSTFromDLL.buildLeftTree(rootElement, llist);
+        balancedBSTFromDLL.buildLeftTree(llist);
         balancedBSTFromDLL.buildRightTree(llist);
         balancedBSTFromDLL.printInorder(root);
     }
@@ -51,7 +51,7 @@ public class BalancedBSTFromDLL {
         }
     }
 
-    private void buildLeftTree(int rootElement, LinkedList<Integer> llist) {
+    private void buildLeftTree(LinkedList<Integer> llist) {
 
         for (int i = 0; i < llist.size()/2; i++) {
             traverseAndAdd(root, llist.get(i));

@@ -12,10 +12,12 @@ public class FindDuplicates
 
         for (i = 0; i < size; i++)
         {
-            if (arr[Math.abs(arr[i])] >= 0)
+            if (arr[Math.abs(arr[i])] >= 0) {
                 arr[Math.abs(arr[i])] = -arr[Math.abs(arr[i])];
-            else
+            }
+            else {
                 System.out.print(Math.abs(arr[i]) + " ");
+            }
         }
     }
 
