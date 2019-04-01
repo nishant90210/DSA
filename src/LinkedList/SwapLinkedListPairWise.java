@@ -9,7 +9,7 @@ public class SwapLinkedListPairWise {
     {
         SinglyLinkedList llist = new SinglyLinkedList();
 
-        /* Created Linked List 1->2->3->4->5 */
+        /* Created Linked List 1->2->3->4->5->6 */
         llist.addFront(6);
         llist.addFront(5);
         llist.addFront(4);

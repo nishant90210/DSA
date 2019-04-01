@@ -24,11 +24,14 @@ public class ArrayRotation {
 
     private static void leftRotate(int[] arr, int k) {
 
-        int temp = arr[0];
-        for (int i = 0; i < arr.length-1; i++) {
-            arr[i] = arr[i+1];
+        for (int i = 0; i < k-1; i++){
+            int j, temp;
+            temp = arr[0];
+            for (j = 0; j < arr.length-1; j++){
+                arr[j] = arr[j+1];
+            }
+            arr[j] = temp;
         }
-        arr[arr.length-1] = temp;
     }
 
 }

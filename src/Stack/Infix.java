@@ -37,7 +37,7 @@ public class Infix {
         String result = new String("");
 
         // initializing empty stack
-        java.util.Stack<Character> stack = new Stack<>();
+        Stack<Character> stack = new Stack<>();
 
         for (int i = 0; i < str.length(); i++) {
             Character ch = str.charAt(i);

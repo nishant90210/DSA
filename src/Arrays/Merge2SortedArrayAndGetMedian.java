@@ -17,17 +17,17 @@ public class Merge2SortedArrayAndGetMedian {
         System.out.println("Median is " + getMedian(ar1, ar2));
     }
 
-    private static int getMedian(int[] ar1, int[] ar2) {
+    private static int getMedian(int[] arr1, int[] arr2) {
 
         int median = 0;
         int count = 0;
-        int[] temp = new int[ar1.length+ar2.length];
-        for (int i = 0; i < ar1.length; i++) {
-            temp[i] = ar1[i];
+        int[] temp = new int[arr1.length+arr2.length];
+        for (int i = 0; i < arr1.length; i++) {
+            temp[i] = arr1[i];
             count++;
         }
-        for (int i = 0; i < ar2.length; i++) {
-            temp[count++] = ar2[i];
+        for (int i = 0; i < arr2.length; i++) {
+            temp[count++] = arr2[i];
         }
         Arrays.sort(temp);
         for (int i : temp) {

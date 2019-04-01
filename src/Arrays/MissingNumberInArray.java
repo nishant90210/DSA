@@ -29,7 +29,7 @@ public class MissingNumberInArray {
 
     private static int getMissingNoBySum(int[] a, int n) {
 
-        int total = ((n+1) * (n + 2)) / 2;
+        int total = ((n + 1) * (n + 2)) / 2;
         for (int i = 0; i < n; i++) {
             total -= a[i];
         }

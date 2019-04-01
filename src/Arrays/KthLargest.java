@@ -25,7 +25,7 @@ public class KthLargest {
 
     private static int kthLargestPQueue(int[] array, int k) {
 
-        PriorityQueue<Integer> pQueue = new PriorityQueue<>(k);
+        PriorityQueue<Integer> pQueue = new PriorityQueue<>();
         for (Integer i : array) {
             pQueue.offer(i);
             if (pQueue.size() > k){

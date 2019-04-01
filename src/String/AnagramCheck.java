@@ -2,17 +2,15 @@ package String;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
-
 //import java.io.BufferedReader;
 //import java.io.InputStreamReader;
 //
 public class AnagramCheck {
-	
-	
-	
-	
-	
+
+
+
+
+
 //	public static void main(String[] args) {
 //		boolean iAnagram = iAnagram("rare", "aeoi");			ARRAYS SORT
 //		if (iAnagram) {
@@ -30,14 +28,14 @@ public class AnagramCheck {
 //        return Arrays.equals(charFromWord, charFromAnagram);
 //		
 //	}
-	
+
 //}
 
 
 
 
 	public static void main(String[] args) {
-		
+
 		try{
 			BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
 			System.out.println("Enter the first String");
@@ -73,18 +71,18 @@ public class AnagramCheck {
 		return anagram.isEmpty();
 	}
 }
-	
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
+
+
+
+
+
+
 //		int count = 0;
 //		String str1 = null;
 //		String str2 = null;

@@ -50,7 +50,7 @@ public class Reverse {
         llist.printList(node);
     }
 
-    private void printList(Node node) {
+    public void printList(Node node) {
 
         Node root = node;
         while (root!= null){
