@@ -1,6 +1,6 @@
 package String;
 
-import org.jetbrains.annotations.NotNull;
+import com.sun.istack.internal.NotNull;
 
 import java.io.BufferedReader;
 import java.io.IOException;

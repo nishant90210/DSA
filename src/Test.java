@@ -1,8 +1,13 @@
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
+import au.com.bytecode.opencsv.CSVReader;
+
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Test {
 
@@ -69,38 +74,38 @@ public class Test {
 //    }
 
 
-    public static void main(String[] args) {
-        try {
-//            JSONObject jsonObject = new JSONObject();
-//            jsonObject.put("fileid", "ankit");
-//            JSONArray jsonArray = new JSONArray();
-//            JSONObject jsonObject1 = new JSONObject();
-//            jsonObject1.put("attachment", jsonObject);
-            String url = "http://10.5.213.40:8011/AuthorizeCredit/proxyservices/uploadDocument";
-            URL obj = new URL(url);
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-            con.setRequestMethod("POST");
-            con.setRequestProperty("Content-Type","application/soap+xml; charset=utf-8");
-            con.setDoOutput(true);
-            DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-//            wr.writeBytes(String.valueOf(jsonObject1));
-            wr.flush();
-            wr.close();
-            String responseStatus = con.getResponseMessage();
-            System.out.println(responseStatus);
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-            in.close();
-            System.out.println("response:" + response.toString());
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-    }
+//    public static void main(String[] args) {
+//        try {
+////            JSONObject jsonObject = new JSONObject();
+////            jsonObject.put("fileid", "ankit");
+////            JSONArray jsonArray = new JSONArray();
+////            JSONObject jsonObject1 = new JSONObject();
+////            jsonObject1.put("attachment", jsonObject);
+//            String url = "http://10.5.213.40:8011/AuthorizeCredit/proxyservices/uploadDocument";
+//            URL obj = new URL(url);
+//            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+//            con.setRequestMethod("POST");
+//            con.setRequestProperty("Content-Type","application/soap+xml; charset=utf-8");
+//            con.setDoOutput(true);
+//            DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+////            wr.writeBytes(String.valueOf(jsonObject1));
+//            wr.flush();
+//            wr.close();
+//            String responseStatus = con.getResponseMessage();
+//            System.out.println(responseStatus);
+//            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+//            String inputLine;
+//            StringBuffer response = new StringBuffer();
+//            while ((inputLine = in.readLine()) != null) {
+//                response.append(inputLine);
+//            }
+//            in.close();
+//            System.out.println("response:" + response.toString());
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//
+//    }
 //    public static void main(String[] args) throws ParseException {
 
 //        String date = "07/06/2013";
@@ -143,5 +148,71 @@ public class Test {
 //        return result;
 //    }
 
+//    public static int[] twoSum(int[] nums, int target) {
+//
+//        int[] answer = new int[2];
+//        for(int i=0; i < nums.length; i++){
+//            for (int j = i+1; j < nums.length; j++) {
+//                if(nums[i] + nums[j] == target){
+//                    answer[0] = i;
+//                    answer[1] = j;
+//                }
+//            }
+//        }
+//        return answer;
+//    }
+
+//    public int[] twoSum(int[] nums, int target) {
+//
+//        for(int i=0; i < nums.length; i++){
+//            for (int j = i+1; j < nums.length; j++) {
+//                if(nums[i] + nums[j] == target){
+//                    return new int[] {i,j};
+//                }
+//            }
+//        }
+//        throw new IllegalArgumentException("No two sum solution");
+//    }
+
+//    public static void main(String[] args) {
+//
+//        int[] nums = {3,3};
+//        int target = 6;
+//        int[] ints = twoSum(nums, target);
+//        for (int i = 0; i < ints.length; i++) {
+//            System.out.println(ints[i]);
+//        }
+//    }
+
+//    public static void main(String[] args) throws IOException {
+//
+//        BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/b0095748/s3File.txt"));;
+//        CSVReader csvReader = new CSVReader(new FileReader("/Users/b0095748/s3.csv"));
+//        List<String[]> list = new ArrayList<>();
+//        String[] line;
+//        while ((line = csvReader.readNext()) != null) {
+//            list.add(line);
+//        }
+//        csvReader.close();
+//        csvReader.close();
+//
+//        for (String[] s : list) {
+//            writer.append("s3cmd get s3://airtel-orion/"+ s[0] + "_*.pdf /home/mnt_user/Nishant\n");
+//        }
+//        writer.close();
+//    }
+
+//    public static void main(String[] args) {
+//
+//        Hashtable hashMap = new Hashtable();
+////        HashMap hashMap = new HashMap();
+//        hashMap.put("1", "NIK");
+//        hashMap.put("2", "NIKA");
+//        hashMap.put("1", "HIMANI");
+//
+//        for (Object o : hashMap.entrySet()) {
+//            System.out.println(o);
+//        }
+//    }
 
 }

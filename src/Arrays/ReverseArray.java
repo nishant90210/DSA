@@ -31,7 +31,6 @@ public class ReverseArray {
         temp = arr[start];
         arr[start] = arr[end];
         arr[end] = temp;
-
     }
 
     private static void printArray(int[] arr, int i) {

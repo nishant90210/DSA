@@ -1,5 +1,7 @@
 package Arrays;
 
+import com.sun.xml.internal.bind.v2.TODO;
+
 import java.util.Arrays;
 
 public class NextGreaterWithSameDigit {
@@ -24,11 +26,12 @@ public class NextGreaterWithSameDigit {
         }
         else {
             int min = i;
-            for (int j = i+1; j < digits.length; j++) {
-                if (digits[j] > digits[j-1] && digits[j] < digits[min]){
-                    min = j;
-                }
-            }
+//            for (int j = i+1; j < digits.length; j++) {
+//                if (digits[j] > digits[j-1] && digits[j] < digits[min]){
+//                    min = j;
+//                }
+//            }
+       //TODO       ---     THIS IS WRONG
             swap(digits, i - 1, min);
             Arrays.sort(digits, i, n);
             System.out.print("Next number with same" + " set of digits is ");

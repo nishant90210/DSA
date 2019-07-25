@@ -7,10 +7,8 @@ public class ArrayInputFromUser {
 public static void main(String[] args) {
 		
 		arrayInputFromUser();
-		
 	}
 
-	
 	public static void arrayInputFromUser() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter the number of element of an Array");
@@ -25,7 +23,6 @@ public static void main(String[] args) {
 		for (int i = 0; i < elements.length; i++) {
 			
 			System.out.print(elements[i]+" ");
-			
 		}
 		System.out.print("]");
 	}
