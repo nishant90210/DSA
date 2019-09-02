@@ -1,8 +1,9 @@
 package CTCI.ArraysAndString;
 
-import java.util.Arrays;
+//Check Permutation: Given two strings, write a method to decide if one is a permutation of the
+//other.
 
-public class Check2StringPermutation {
+public class QuestionCheck2StringPermutation2 {
 
     //  First Method is to sort both strings and check for equal
 
@@ -34,7 +35,7 @@ public class Check2StringPermutation {
 //    }
 
 
-    //  Check if 2 Strings have identical character counts
+    // Second Method - Check if 2 Strings have identical character counts
     public static void main(String[] args) {
 
         String s1 = "abca";

@@ -12,14 +12,15 @@ public class SetMatrixZeroes {
     {
         int mat[ ][ ] = { {1, 0, 0, 1},
                           {0, 0, 1, 0},
-                          {0, 0, 0, 0},};
+                          {0, 0, 0, 0},
+        };
 
         System.out.println("Matrix Intially");
 
-        printMatrix(mat);
+        FindIsland.printMatrix(mat);
         modifyMatrix(mat);
         System.out.println("Matrix after modification n");
-        printMatrix(mat);
+        FindIsland.printMatrix(mat);
 
     }
 
@@ -53,16 +54,4 @@ public class SetMatrixZeroes {
             }
         }
     }
-
-    private static void printMatrix(int[][] mat) {
-        int rows = mat.length;
-        int cols = mat[0].length;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols ; j++) {
-                System.out.print(" " + mat[i][j]);
-            }
-            System.out.println();
-        }
-    }
-
 }

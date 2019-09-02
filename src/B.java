@@ -12,14 +12,15 @@
 // But with static keyword override will not happen and we will get the A's method.
 
 class A{
-    public static void staticMethod(){
+    public static void staticMethod() {
         System.out.println("SuperClass: inside staticMethod");
     }
 }
 
 public class B extends A{
+
     //overriding the static method
-    public static void staticMethod(){
+    public static void staticMethod() {
         System.out.println("SubClass: inside staticMethod");
     }
 

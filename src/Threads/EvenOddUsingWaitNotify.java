@@ -31,41 +31,37 @@ public class EvenOddUsingWaitNotify {
         t2.start();
     }
 
-    private void printOdd() {
+    private synchronized void printOdd() {
 
-        synchronized (this){
-            while (count < 11){
-                if (odd){
-                        System.out.println(Thread.currentThread().getName() + " ODD " + count);
-                        count++;
-                        odd = false;
-                        notify();
-                }else {
-                    try {
-                        wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+        while (count < 11){
+            if (odd){
+                System.out.println(Thread.currentThread().getName() + " ODD " + count);
+                count++;
+                odd = false;
+                notify();
+            }else {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    private void printEven() {
+    private synchronized void printEven() {
 
-        synchronized (this){
-            while (count < 11){
-                if (!odd){
-                        System.out.println(Thread.currentThread().getName() + " EVEN " + count);
-                        count++;
-                        odd = true;
-                        notify();
-                }else {
-                    try {
-                        wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+        while (count < 11){
+            if (!odd){
+                System.out.println(Thread.currentThread().getName() + " EVEN " + count);
+                count++;
+                odd = true;
+                notify();
+            }else {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }

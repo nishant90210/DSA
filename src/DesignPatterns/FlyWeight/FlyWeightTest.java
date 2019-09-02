@@ -28,7 +28,7 @@ public class FlyWeightTest extends JFrame{
         this.setSize(windowWidth, windowHeight);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("FlyWeight Test");
+        this.setTitle("FlyWeight UniqueString");
 
         JPanel contentPane = new JPanel();
         contentPane.setLayout(new BorderLayout());

@@ -1,7 +1,9 @@
 package CTCI.ArraysAndString;
 
-//You should first ask your interviewer if the string is an ASCII string or a Unicode string.
+//Is Unique: Implement an algorithm to determine if a string has all unique characters. What if you
+//cannot use additional data structures?
 
+//You should first ask your interviewer if the string is an ASCII string or a Unicode string.
 
 //One solution is to create an array of boolean values, where the flag at index i indicates whether character
 //i in the alphabet is contained in the string. The second time you see this character you can immediately
@@ -12,14 +14,14 @@ package CTCI.ArraysAndString;
 
 //It's also okay to assume 256 characters. This would be the case in extended ASCII. You should
 //clarify your assumptions with your interviewer.
-public class UniqueCharacter {
+public class QuestionUniqueCharacter1 {
 
-//    public static void main(String[] args) {
-//
-//        String str = "Himanu";
-//        boolean unique = isUnique(str.toLowerCase());
-//        System.out.println(unique);
-//    }
+    public static void main(String[] args) {
+
+        String str = "Himanu";
+        boolean unique = isUnique(str.toLowerCase());
+        System.out.println(unique);
+    }
 
     private static boolean isUnique(String str) {
 

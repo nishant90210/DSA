@@ -16,8 +16,15 @@ public class MatrixRotation {
                 {21, 22, 23, 24, 25}
         };
 
+        System.out.println(" Before Transpose := ");
+        displayMatrix(n, mat);
         transpose(mat, n);
+        System.out.println(" After Transpose := ");
+        displayMatrix(n, mat);
+        System.out.println(" Before Reverse := ");
+        displayMatrix(n, mat);
         reverseColumns(mat,n);
+        System.out.println(" After Reverse := ");
         displayMatrix(n, mat);
 
 
@@ -50,7 +57,7 @@ public class MatrixRotation {
             }
     }
 
-    private static void displayMatrix(int n, int[][] mat) {
+    public static void displayMatrix(int n, int[][] mat) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n ; j++) {
                 System.out.print(" " + mat[i][j]);

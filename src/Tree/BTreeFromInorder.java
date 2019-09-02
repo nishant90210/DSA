@@ -7,26 +7,25 @@ public class BTreeFromInorder {
 
     public static void main(String[] args) {
 
-        Node root = null;
         int inorder[] = new int[]{5, 10, 40, 30, 28};
         int len = inorder.length;
-        Node mynode = buildTree(inorder, 0, len - 1, root);
+        Node mynode = buildTree(inorder, 0, len - 1);
         inOrderTraversal(mynode);
     }
 
-    private static Node buildTree(int[] inorder, int start, int end, Node root) {
+    private static Node buildTree(int[] inorder, int start, int end) {
 
         if (start > end){
             return null;
         }
         int max = findMax(inorder, start, end);
-        root = new Node(inorder[max]);
+        Node root = new Node(inorder[max]);
 //        int index = calculateIndex(inorder, max);
         if (start == end){
             return root;
         }
-        root.left = buildTree(inorder, start, max-1, root);
-        root.right = buildTree(inorder, max+1, end, root);
+        root.left = buildTree(inorder, start, max-1);
+        root.right = buildTree(inorder, max+1, end);
         return root;
     }
 

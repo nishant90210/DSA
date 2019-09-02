@@ -64,7 +64,6 @@ public class NthFromEndLLIst {
                 count++;
                 temp = temp.next;
             }
-            return count;
         }
         return count;
     }

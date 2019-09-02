@@ -1,6 +1,9 @@
 package CTCI.ArraysAndString;
+//Palindrome Permutation: Given a string, write a function to check if it is a permutation of a palindrome.
+//A palindrome is a word or phrase that is the same forwards and backwards. A permutation
+//is a rearrangement of letters. The palindrome does not need to be limited to just dictionary words.
 
-public class PalindromePerm {
+public class QuestionPalindromePerm4 {
 
     public static void main (String[] args) {
 
@@ -16,21 +19,24 @@ public class PalindromePerm {
 
     public static boolean isPermOfPalind(String input) {
 
-        int count = 0;
+        int countOdd = 0;
         int[] table = new int[Character.getNumericValue('z') - Character.getNumericValue('a') + 1];
         char[] ch = input.toCharArray();
+
         for(Character character : ch){
             int value = getNumbericValue(character);
             if(value != -1){
                 table[value]++;
                 if(table[value] % 2 == 1){
-                    count++;
+                    countOdd++;
+//                    System.out.println("in IF " + countOdd);
                 }else {
-                    count--;
+                    countOdd--;
+//                    System.out.println("in Else " + countOdd);
                 }
             }
         }
-        if(count < 2){
+        if(countOdd <= 1){
             return true;
         }else{
             return false;

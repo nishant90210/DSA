@@ -14,19 +14,9 @@ public class ZeroEvenOdd {
 
         ZeroEvenOdd zeroEvenOdd = new ZeroEvenOdd();
 
-        Thread t0 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                zeroEvenOdd.printZero();
-            }
-        });
+        Thread t0 = new Thread(zeroEvenOdd::printZero);
 
-        Thread t1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                zeroEvenOdd.printOdd();
-            }
-        });
+        Thread t1 = new Thread(() -> zeroEvenOdd.printOdd());
 
         Thread t2 = new Thread(new Runnable() {
             @Override

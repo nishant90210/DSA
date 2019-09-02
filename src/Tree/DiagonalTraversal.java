@@ -50,27 +50,6 @@ public class DiagonalTraversal {
         diagonalTraversal(d, valueMap, root.right);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*    BAKWASSS HAI YEEEE     */
 
 

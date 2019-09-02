@@ -1,9 +1,5 @@
 package LinkedList;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 /**
  * Created by NISHANT on 8/17/17.
  */
@@ -62,6 +58,27 @@ public class SortedMergeLL {
         llist.printList(node);
     }
 
+    //In-Place Recursion
+    public Node sortedMergeInPlace(Node llist, Node llist2){
+
+        if (llist == null){
+            return llist2;
+        }
+        if (llist2 == null){
+            return llist;
+        }
+
+        if (llist.data < llist2.data){
+            llist.next = sortedMergeInPlace(llist.next, llist2);
+            return llist;
+        }else {
+            llist2.next = sortedMergeInPlace(llist, llist2.next);
+            return llist2;
+        }
+    }
+
+
+    //With Space
     public Node sortedMerge(SortedMergeLL llist, SortedMergeLL llist2){
 
         Node temp = new Node(0);

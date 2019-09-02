@@ -24,7 +24,9 @@ public class Deadlock {
                 }
             }
         });
+
         Thread t2 = new Thread(){
+
             public void run()
             {
                 synchronized(pr)

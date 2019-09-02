@@ -1,9 +1,14 @@
 package CTCI.ArraysAndString;
+//URLify: Write a method to replace all spaces in a string with '%20'. You may assume that the string
+//has sufficient space at the end to hold the additional characters, and that you are given the "true"
+//length of the string. (Note: If implementing in Java, please use a character array so that you can
+//perform this operation in place.)
+
 
 //A common approach in string manipulation problems is to edit the string starting from the end and working
 //backwards. This is useful because we have an extra buffer at the end, which allows us to change characters
 //without worrying about what we're overwriting
-public class URLify {
+public class QuestionURLify3 {
 
     //We will use this approach in this problem. The algorithm employs a two-scan approach. In the first scan, we
     //count the number of spaces. By tripling this number, we can compute how many extra characters we will
@@ -13,10 +18,12 @@ public class URLify {
 
     public static void main(String[] args) {
         String str = "Mr John Smith    ";
+        System.out.println(str.length());
         char[] arr = str.toCharArray();
-        int trueLength = findLastCharacter(arr) + 1;
-        replaceSpaces(arr, trueLength);
-        System.out.println("\"" + URLify.charArrayToString(arr) + "\"");
+        int trueLength = findLastCharacter(arr) ;
+        System.out.println(trueLength);
+        replaceSpaces(arr, trueLength+1);
+        System.out.println("\"" + QuestionURLify3.charArrayToString(arr) + "\"");
     }
 
     private static String charArrayToString(char[] arr) {
@@ -37,6 +44,7 @@ public class URLify {
             }
         }
         int size = trueLength + count * 2;
+        System.out.println(size);
         if (trueLength < arr.length){
             arr[trueLength] = '\0';
         }
@@ -52,7 +60,6 @@ public class URLify {
             }
         }
     }
-
 
     private static int findLastCharacter(char[] arr) {
 

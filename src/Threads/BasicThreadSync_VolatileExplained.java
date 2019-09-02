@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Created by NISHANT on 4/5/18.
  */
-public class BasicThreadSync {
+public class BasicThreadSync_VolatileExplained {
 
     private static volatile boolean running = true;
 

@@ -45,7 +45,7 @@ public class MatrixRotationNxM {
         }
     }
 
-    private static void displayMatrix(int[][] mat) {
+    public static void displayMatrix(int[][] mat) {
         int rows = mat.length;
         int cols = mat[0].length;
         for (int i = 0; i < rows; i++) {

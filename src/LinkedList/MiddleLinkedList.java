@@ -88,7 +88,7 @@ public class MiddleLinkedList {
 
     public static void main(String[] args) {
         MiddleLinkedList llist = new MiddleLinkedList();
-        for (int i=5; i>0; --i)
+        for (int i=4; i>0; --i)
         {
             llist.push(i);
             llist.printList();

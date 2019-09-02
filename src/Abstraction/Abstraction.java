@@ -1,7 +1,12 @@
 package Abstraction;
 
-public class Abstraction {
-	
+public class Abstraction extends Draw{
+    //Need to implement method without body or un abtract method
+    @Override
+    void circle() {
+
+    }
+
 //	Abstraction can be achieved through Interfaces in JAVA
 
 //	An abstract class is something which is incomplete and you can not create an instance of the abstract class. 
@@ -20,5 +25,21 @@ public class Abstraction {
 
 //	If you know some of the behavior while designing class and that would remain 
 //	common across all subclasses add that into an abstract class.
-	
+
+}
+
+abstract class Draw {
+
+    abstract void circle();
+    public void rectangle() {
+
+        System.out.println("Its a rectangle");
+    }
+
+}
+
+interface Color {
+    // Interface method are explicitly PUBLIC and ABSTRACT
+    public abstract void blue();
+    void red();
 }

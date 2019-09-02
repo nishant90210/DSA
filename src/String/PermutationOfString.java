@@ -10,7 +10,7 @@ public class PermutationOfString {
 		String input = "SIM";
 //		Set<String> strings = permutationFinder(input);
 //		System.out.println(strings);
-		permutationC("ABC");
+		permutationC("123");
 	}
 
 	private static void permutationC(String string) {

@@ -60,13 +60,13 @@ public class TrieHashMap {
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         /** Accept words **/
-        System.out.println("Trie Test\n");
+        System.out.println("Trie UniqueString\n");
         System.out.println ("Enter words to be entered into trie");
         String input = br.readLine();
         String[] s = input.split(" ");
         /** Create Trie with accepted words **/
         TrieHash t = new TrieHash(s);
-        /** Trie Test **/
+        /** Trie UniqueString **/
         char ch = 'n';
         do
         {

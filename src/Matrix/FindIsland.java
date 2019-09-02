@@ -46,7 +46,7 @@ public class FindIsland {
         return 1;
     }
 
-    private static void printMatrix(int[][] mat) {
+    public static void printMatrix(int[][] mat) {
         int rows = mat.length;
         int cols = mat[0].length;
         for (int i = 0; i < rows; i++) {
