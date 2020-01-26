@@ -12,17 +12,17 @@ public class PascalTriangle {
         int n = 7;
         int pascal[][] = new int[n][n];
 
-        for (int i = 1; i < n; i++) {
+        for(int i = 0; i < n; i++){
             for (int j = 0; j < n-i; j++) {
                 System.out.print(" ");
             }
-            for (int k = 1; k <= i; k++) {
-                if (k == 1 || k == i){
-                    pascal[i][k] = 1;
+            for(int j = 0; j <= i ; j++){
+                if (i == 0 || j == 0 || i == j){
+                    pascal[i][j] = 1;
                 }else {
-                    pascal[i][k] = pascal[i-1][k-1] + pascal[i-1][k];
+                    pascal[i][j] = pascal[i-1][j-1] + pascal[i-1][j];
                 }
-                System.out.print(pascal[i][k] + " ");
+                System.out.print(pascal[i][j] + " ");
             }
             System.out.println();
         }

@@ -56,7 +56,7 @@ public class LeafTraversal {
             return stack;
         }
         if (root.left == null && root.right == null){
-//            System.out.println(root.data);
+            System.out.println(root.data);
             stack.push(root.data);
         }
         leafTraversal(root.left, stack);

@@ -1,4 +1,4 @@
-package ObserverPattern;
+package DesignPatterns.ObserverPattern;
 
 public class MailBox implements Observer {
 

@@ -76,7 +76,7 @@ public class MatrixAddition {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args ) {
 		
 		MatrixAddition addition = new MatrixAddition();
 		addition.create();

@@ -19,7 +19,9 @@ public class BinarySearch {
 //	}
 //
 //	private static int binarySearch(int[] array, int low, int high, int searchedInt) {
-//		
+//
+		// Same as (low + high)/2, but avoids overflow for
+		// large low and high
 //		int mid = (low+high)/2;
 //		
 //		if (array[mid] == searchedInt){
@@ -39,6 +41,9 @@ public class BinarySearch {
 		int start = 0;
 		int end = inputArr.length - 1;
 		while (start <= end) {
+			// Same as (low + high)/2, but avoids overflow for
+			// large low and high
+			// int mid = low + (high - low) / 2;
 			int mid = (start + end) / 2;
 			if(key == inputArr[mid]){
 				return mid;

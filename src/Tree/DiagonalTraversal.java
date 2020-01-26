@@ -1,5 +1,6 @@
 package Tree;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
@@ -21,7 +22,7 @@ public class DiagonalTraversal {
         root.left.right.left = new Node(4);
         root.left.right.right = new Node(7);
 
-        Map<Integer, Vector<Integer>> valueMap = new HashMap<>();
+        Map<Integer, ArrayList<Integer>> valueMap = new HashMap<>();
         Node node = root;
         diagonalTraversal(0, valueMap, node);
         for (Map.Entry entry : valueMap.entrySet()){
@@ -29,14 +30,14 @@ public class DiagonalTraversal {
         }
     }
 
-    private static void diagonalTraversal(int d, Map<Integer, Vector<Integer>> valueMap, Node root) {
+    private static void diagonalTraversal(int d, Map<Integer, ArrayList<Integer>> valueMap, Node root) {
 
         if (root == null){
             return;
         }
-        Vector<Integer> keyVal = valueMap.get(d);
+        ArrayList<Integer> keyVal = valueMap.get(d);
         if (keyVal == null){
-            keyVal = new Vector<Integer>();
+            keyVal = new ArrayList<>();
             keyVal.add(root.data);
         } else {
             keyVal.add(root.data);

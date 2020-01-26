@@ -39,7 +39,7 @@ public class MergeOverlappingArrays {
 
     private static List<Interval> mergeIntervals(List<Interval> intervals) {
 
-        List<Interval> result = new ArrayList<Interval>();
+        List<Interval> result = new ArrayList<>();
         Interval pre = intervals.get(0);
         for (int i = 1; i < intervals.size(); i++) {
             Interval curr = intervals.get(i);

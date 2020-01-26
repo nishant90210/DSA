@@ -1,4 +1,4 @@
-package Polymorphism;
+package DesignPatterns.Polymorphism;
 
 // Private and Static keywords Assembly instruction is "invokespecial" and "invokestatic" respectively, which invokes Static Binding
 // Public keyword Assembly instruction is "invokevirtual", which invokes Dynamic Binding

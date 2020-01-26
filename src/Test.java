@@ -1,13 +1,4 @@
-import au.com.bytecode.opencsv.CSVReader;
-
-import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Random;
 
 public class Test {
 
@@ -215,4 +206,10 @@ public class Test {
 //        }
 //    }
 
+    public static void main(String[] args) {
+
+        Random random = new Random();
+        int i = random.nextInt((1 - 0) + 1) + 0;
+        System.out.println(i);
+    }
 }

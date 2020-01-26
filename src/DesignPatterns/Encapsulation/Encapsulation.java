@@ -1,9 +1,9 @@
-//Encapsulation in Java is achieved using access modifier private, protected and public.
-//Factory pattern , Singleton pattern in Java makes good use of Encapsulation.
+//DesignPatterns.Encapsulation in Java is achieved using access modifier private, protected and public.
+//Factory pattern , Singleton pattern in Java makes good use of DesignPatterns.Encapsulation.
 
-package Encapsulation;
+package DesignPatterns.Encapsulation;
 
-//Encapsulation is nothing but protecting anything which is prone to change. rational behind encapsulation is that if any 
+//DesignPatterns.Encapsulation is nothing but protecting anything which is prone to change. rational behind encapsulation is that if any
 //functionality which is well encapsulated in code i.e maintained in just one place and not scattered around code is easy 
 //to change. this can be better explained with a simple example of encapsulation in Java. we all know that constructor is 
 //used to creating object in Java and constructor can accept an argument. Suppose we have a class Loan has a constructor 

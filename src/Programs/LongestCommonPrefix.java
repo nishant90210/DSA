@@ -16,7 +16,6 @@ public class LongestCommonPrefix {
     // Pure functions should generally be declared "static"
     private static String longestCommonPrefix(String[] strings) {
 
-        String prefix = "";
         if (strings.length == 0){
             return "";
         }
@@ -25,7 +24,6 @@ public class LongestCommonPrefix {
             char c = strings[0].charAt(prefixLen);
             for (int i = 1; i < strings.length; i++) {
                 if ( prefixLen >= strings[i].length() || strings[i].charAt(prefixLen) != c ) {
-                    // Mismatch found
                     return strings[i].substring(0, prefixLen);
                 }
             }

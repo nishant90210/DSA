@@ -1,4 +1,4 @@
-package Matrix;
+package TopInterviewQuestions;
 
 /**
  * Created by NISHANT on 2/14/18.

@@ -5,7 +5,7 @@ package Arrays;
  */
 public class FindDuplicates
 {
-    void printRepeating(int arr[], int size)
+    public static void printRepeating(int arr[], int size)
     {
         int i;
         System.out.println("The repeating elements are : ");
@@ -24,10 +24,8 @@ public class FindDuplicates
     // Driver program
     public static void main(String[] args)
     {
-        FindDuplicates duplicate = new FindDuplicates();
         int arr[] = {1, 2, 3, 1, 3, 6, 6};
         int arr_size = arr.length;
-
-        duplicate.printRepeating(arr, arr_size);
+        printRepeating(arr, arr_size);
     }
 }

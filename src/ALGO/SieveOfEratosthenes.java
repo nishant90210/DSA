@@ -10,7 +10,7 @@ public class SieveOfEratosthenes {
 
     public static void main(String args[])
     {
-        int n = 30;
+        int n = 9;
         System.out.print("Following are the prime numbers ");
         System.out.println("smaller than or equal to " + n);
         SieveOfEratosthenes g = new SieveOfEratosthenes();

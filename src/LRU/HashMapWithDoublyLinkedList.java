@@ -101,6 +101,4 @@ public class HashMapWithDoublyLinkedList {
         lru.look(4);
         lru.look(6);
     }
-
-
 }

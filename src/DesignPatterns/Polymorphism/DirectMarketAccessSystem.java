@@ -1,4 +1,4 @@
-package Polymorphism;
+package DesignPatterns.Polymorphism;
 
 public class DirectMarketAccessSystem extends TradingSystem{
    public String getDescription(){

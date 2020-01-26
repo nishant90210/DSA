@@ -1,4 +1,4 @@
-package NestedClass;
+package DesignPatterns.NestedClass;
 
 /**
  * Created by NISHANT on 2/1/18.

@@ -14,7 +14,7 @@ public class AreaOfHistogram {
         System.out.println("Area of Histogram :- " + area);
     }
 
-    private static int calculateAreaOfHistogram(int[] hist, int length) {
+    public static int calculateAreaOfHistogram(int[] hist, int length) {
 
         int i = 0;
         int maxArea = 0;

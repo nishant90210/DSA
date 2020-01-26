@@ -25,30 +25,28 @@ public class SubmatrixSum {
         System.out.print("\nQuery3: " + sumQuery(aux, tli, tlj, rbi, rbj));
     }
 
-    // A O(1) time function to compute sum
-    // of submatrix between (ti, tj) and
-    // (ri, rj) using aux[][] which is
-    // built by the preprocess function
-    private static int sumQuery(int aux[][], int ti, int tj, int ri, int rj) {
+    // A O(1) time function to compute sum of submatrix between (Ui, Uj) and
+    // (Li, Lj) using aux[][] which is built by the preprocess function
+    private static int sumQuery(int aux[][], int Ui, int Uj, int Li, int Lj) {
 
-        // result is now sum of elements between (0, 0) and (ri, rj)
-        int res = aux[ri][rj];
+        // result is now sum of elements between (0, 0) and (Li, Lj)
+        int res = aux[Li][Lj];
 
-        // Remove elements between (0, 0) and (ti-1, rj)
-        if (ti > 0) {
-            res = res - aux[ti - 1][rj];
+        // Remove elements between (0, 0) and (Ui-1, Lj)
+        if (Ui > 0) {
+            res = res - aux[Ui - 1][Lj];
         }
         // Remove elements between (0, 0)
-        // and (ri, tj-1)
-        if (tj > 0) {
-            res = res - aux[ri][tj - 1];
+        // and (Li, Uj-1)
+        if (Uj > 0) {
+            res = res - aux[Li][Uj - 1];
         }
 
-        // Add aux[ti-1][tj-1] as elements
-        // between (0, 0) and (ti-1, tj-1)
+        // Add aux[Ui-1][Uj-1] as elements
+        // between (0, 0) and (Ui-1, Uj-1)
         // are subtracted twice
-        if (ti > 0 && tj > 0) {
-            res = res + aux[ti - 1][tj - 1];
+        if (Ui > 0 && Uj > 0) {
+            res = res + aux[Ui - 1][Uj - 1];
         }
 
         return res;
