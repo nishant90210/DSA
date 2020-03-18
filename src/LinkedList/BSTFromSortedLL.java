@@ -31,7 +31,7 @@ public class BSTFromSortedLL {
 
         int size = calculateSizeOfll(head);
 //        System.out.println(size);
-        int[] arr = {1,2,3,4,5,6,7};
+        int[] arr = {-10,-3,0,5,9};
         int start = 0;
         int length = arr.length;
         Node node = llist.buildTree(arr, start, length-1);
@@ -110,10 +110,14 @@ public class BSTFromSortedLL {
         if (start > end){
             return null;
         }
-        int mid = (start + end)/2;
+        // Same as (low + high)/2, but avoids overflow for
+        // large low and high
+        // int mid = low + (high - low) / 2;
+        int mid = (start + end) / 2;
         Node node = new Node(arr[mid]);
         node.left = buildTree(arr, start, mid-1);
         node.right = buildTree(arr, mid+1, end);
+        System.out.println();
         return node;
     }
 

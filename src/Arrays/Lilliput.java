@@ -26,17 +26,19 @@ public class Lilliput {
 
     private static void findUser(HashMap<String, Integer> bookMap, String[][] booksRequests) {
 
-        Integer count = 1;
-        for(int i=0; i< booksRequests.length; i++){
-            if (!bookMap.containsKey(booksRequests[i][0])){
+        int count = 1;
+        for (int i = 0; i < booksRequests.length; i++) {
+
+            if (bookMap.containsKey(booksRequests[i][0])){
+                Integer value = bookMap.get(booksRequests[i][0]);
+                bookMap.put(booksRequests[i][0], value+1);
+            }else {
                 bookMap.put(booksRequests[i][0], count);
-            }else{
-                count = bookMap.get(booksRequests[i][0]);
-                bookMap.put(booksRequests[i][0], count+1);
             }
         }
-        for (Map.Entry map : bookMap.entrySet()) {
-            System.out.println(map.getKey() + " " + map.getValue());
+
+        for(Map.Entry entry : bookMap.entrySet()){
+            System.out.println(entry.getKey() + " - " + entry.getValue());
         }
     }
 }

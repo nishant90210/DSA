@@ -7,12 +7,47 @@ public class ArrayRotation {
 
     public static void main(String[] args)
     {
-        int arr[] = {1, 2, 3, 4, 5, 6, 7};
+        int arr[] = {1,2,3,4,5,6,7};
         int k = 3;
-        for (int i = 0; i < k; i++) {
-            leftRotate(arr, k);
-        }
+//        for (int i = 0; i < k; i++) {
+//            leftRotate(arr, k);
+//        }
+        rotate(arr, k);
         printArray(arr);
+    }
+
+    public static void rotate(int[] nums, int k) {
+        /*
+        Break the array into 2 parts (length - k) and rest array
+        Reverse both of them separately,
+        Finally reverse the complete array.
+         */
+        if(nums.length == 1) {
+            return;
+        }
+        if (nums.length < k){
+            return;
+        }
+        reverse(nums, 0, nums.length-k-1);
+        reverse(nums, nums.length-k, nums.length-1);
+        reverse(nums, 0, nums.length-1);
+    }
+
+    public static void reverse(int[] nums, int a, int b) {
+
+        int start = a;
+        int end = b;
+        while(start < end) {
+            swap(nums, start, end);
+            start++;
+            end--;
+        }
+    }
+
+    private static void swap(int[] nums, int start, int end) {
+        int temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
     }
 
     private static void printArray(int[] arr) {
@@ -24,14 +59,14 @@ public class ArrayRotation {
 
     private static void leftRotate(int[] arr, int k) {
 
-            int j, temp;
-            temp = arr[0];
-            for (j = 0; j < arr.length-1; j++){
-                arr[j] = arr[j+1];
-            }
-            arr[j] = temp;
-//        int gcd = gcd(2, 7);
-//        System.out.println("adhj " + gcd);
+        int j, temp;
+        temp = arr[0];
+        for (j = 0; j < arr.length-1; j++){
+            arr[j] = arr[j+1];
+        }
+        arr[j] = temp;
+        int gcd = gcd(2, 7);
+        System.out.println("GCD is " + gcd);
     }
 
     private static void rightRotate(int[] arr, int k) {

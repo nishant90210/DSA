@@ -17,30 +17,24 @@ public class FindIslandMe {
         for(int i = 0; i < mat.length; i++){
             for(int j = 0; j < mat[0].length; j++){
                 if (mat[i][j] == 1){
-                    count += walk(mat, i, j);
+                    count += walkMore(mat, i, j);
                 }
             }
         }
         System.out.println(count);
     }
 
-    private static int walk(int[][] mat, int i, int j) {
+    private static int walkMore(int[][] mat, int i, int j) {
 
-        if (mat[i][j] == 1){
-            mat[i][j] = 0;
-            if (j < mat[0].length - 1){
-                walk(mat, i, j+1);
-            }
-            if (i < mat.length - 1){
-                walk(mat, i+1, j);
-            }
-            if (i > 0){
-                walk(mat, i-1, j);
-            }
-            if (j > 0){
-                walk(mat, i, j-1);
-            }
+        if (i < 0 || i >= mat.length || j < 0 || j >= mat[0].length || mat[i][j] == 0){
+            return 0;
         }
+        mat[i][j] = 0;
+        walkMore(mat, i+1, j);
+        walkMore(mat, i, j+1);
+        walkMore(mat, i-1, j);
+        walkMore(mat, i, j-1);
         return 1;
     }
+
 }

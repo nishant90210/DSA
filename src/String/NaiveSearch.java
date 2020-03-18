@@ -28,10 +28,19 @@ public class NaiveSearch {
         }
     }
 
+    public static int product1ToN(int n) {
+        // we assume n >= 1
+        int i = (n > 1) ? (n * product1ToN(n - 1)) : 1;
+        return i;
+    }
+
     public static void main(String[] args)
     {
         String txt = "AABAACAADAABAAABAA";
         String pat = "AABA";
-        search(txt, pat);
+        //search(txt, pat);
+        product1ToN(5);
+
+
     }
 }

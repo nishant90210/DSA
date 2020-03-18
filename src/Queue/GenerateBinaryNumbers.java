@@ -10,7 +10,7 @@ public class GenerateBinaryNumbers {
 
     public static void main(String[] args)
     {
-        int n=6;
+        int n=17;
         generatePrintBinary(n);
     }
 
@@ -19,8 +19,7 @@ public class GenerateBinaryNumbers {
         Queue<String> queue = new LinkedList<>();
         queue.add("1");
         while (n-- > 0){
-            String s1 = queue.peek();
-            queue.remove();
+            String s1 = queue.poll();
             System.out.println(" "+ s1);
             // Store s1 before changing it
             String s2 = s1;

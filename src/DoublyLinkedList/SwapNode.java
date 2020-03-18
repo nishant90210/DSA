@@ -124,7 +124,7 @@ public class SwapNode {
         if (y_prev != null)
             y_prev.next = x;
 
-        // Programs.Swap next pointers of x and y. These statements
+        // TopInterviewQuestions.Swap next pointers of x and y. These statements
         // also break self loop if x->next is y or y->next
         // is x
         Node temp = x.next;

@@ -9,6 +9,8 @@ package Trie;
 // on Trie
 public class Trie {
 
+    static TrieNode root;
+
     // Alphabet size (# of symbols)
     static final int ALPHABET_SIZE = 26;
 
@@ -29,8 +31,6 @@ public class Trie {
         }
     }
 
-    static TrieNode root;
-
     // If not present, inserts key into trie
     // If the key is prefix of trie node,
     // just marks leaf node
@@ -45,9 +45,9 @@ public class Trie {
         for (level = 0; level < length; level++)
         {
             index = key.charAt(level) - 'a';
-            if (pCrawl.children[index] == null)
+            if (pCrawl.children[index] == null) {
                 pCrawl.children[index] = new TrieNode();
-
+            }
             pCrawl = pCrawl.children[index];
         }
 
@@ -75,14 +75,13 @@ public class Trie {
 
     public static void main(String[] args) {
 
-        TrieNode trieNode = new TrieNode();
         String keys[] = {"the", "a", "there", "answer", "any",
                 "by", "bye", "their"};
         root = new TrieNode();
-        int i;
-        for (i = 0; i < keys.length ; i++)
+        for (int i = 0; i < keys.length ; i++) {
             insert(keys[i]);
-
-        System.out.println(trieNode);
+        }
+        boolean any = search("any");
+        System.out.println(any);
     }
 }

@@ -1,6 +1,6 @@
 package Matrix;
 
-import Programs.AreaOfHistogram;
+import TopInterviewQuestions.AreaOfHistogram;
 
 public class MaximumSizeRectangle {
 

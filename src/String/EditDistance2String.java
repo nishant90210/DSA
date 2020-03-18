@@ -1,55 +1,29 @@
 package String;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class EditDistance2String {
 
-	public static void main(String[] args) {
-		
-		List<Character> extraCharList = new ArrayList<Character>();
-//		String loopingStr = null;
-//		String comparingStr = null;
-		String str1 = "acd";
-		String str2 = "abcd";
-		int j;
-		int i;
-//		int x = 0;
-		int count = 1;
+	public static void main(String args[]) {
+		String str1 = "horse";
+		String str2 = "ros";
+		System.out.println(editDist(str1, str2));
+	}
 
-//		int strLength = str1.compareTo(str2);
-//		if(strLength > 0){
-//			loopingStr = str2;
-//			comparingStr = str1;
-//		}else if (strLength == 0) {
-//			loopingStr = str2;
-//			comparingStr = str1;
-//		}else{
-//			loopingStr = str1;
-//			comparingStr = str2;
-//		}
+	private static int editDist(String word1, String word2) {
 
-		String loopingStr = "geek";
-		String comparingStr = "gesaek";
-		
-		char[] loopingCharArray = loopingStr.toCharArray();
-		char[] comparingCharArray = comparingStr.toCharArray();
-		for (i = 0; i < loopingCharArray.length; ) {
-			for (j = i; j < comparingCharArray.length;) {
-//				System.out.println("looping----" +loopingCharArray[i]);
-//				System.out.println("comparing----" +comparingCharArray[j]);
-				if(loopingCharArray[i] != comparingCharArray[j]){
-					extraCharList.add(comparingCharArray[j]);
-					j++;
-					continue;
-				}else{
-					i++;
-					j++;
-					continue;
+		int[][] dp = new int[word2.length()+1][word1.length()+1];
+		for(int i = 0; i <= word2.length(); i++){
+			for (int j = 0; j <= word1.length(); j++) {
+				if (i == 0) {
+					dp[i][j] = j;
+				} else if (j == 0){
+					dp[i][j] = i;
+				}else if (word1.charAt(j-1) == word2.charAt(i-1)){
+					dp[i][j] = dp[i-1][j-1];
+				}else {
+					dp[i][j] = 1 + (Math.min(Math.min(dp[i-1][j-1], dp[i-1][j]), dp[i][j-1]));
 				}
 			}
 		}
-		System.out.println("Given two strings can be EQUAL by removing " + extraCharList.toString());
+		return dp[word2.length()][word1.length()];
 	}
-
 }

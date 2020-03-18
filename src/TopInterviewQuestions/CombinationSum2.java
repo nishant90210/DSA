@@ -9,7 +9,7 @@ public class CombinationSum2 {
 
     public static void main(String[] args) {
 
-        int[] arr = {10,1,6,7,2,1,5};
+        int[] arr = {10,1,6,7,2,3,5};
 //        int[] arr = {1,2,3,2,1};
         Arrays.sort(arr);
         int target = 8;
@@ -17,9 +17,9 @@ public class CombinationSum2 {
         List<List<Integer>> answer = new ArrayList<>();
         List<Integer> items = new ArrayList<>();
         dfs(answer, items, arr, target, 0);
-        for (List<Integer> integers : answer) {
-            System.out.println(integers);
-        }
+//        for (List<Integer> integers : answer) {
+//            System.out.println(integers);
+//        }
     }
 
     private static void dfs(List<List<Integer>> result, List<Integer> items, int[] arr, int target, int start) {
@@ -33,7 +33,7 @@ public class CombinationSum2 {
         }
 
         for(int i = start; i < arr.length; i++){
-            //arr[i] != arr[i-1] , this is done coz we dont want duplicates figure it how
+            //arr[i] != arr[i-1] , this is done coz we dont want duplicates, figure it how
             if (i == start || arr[i] != arr[i-1]) {
                 items.add(arr[i]);
                 dfs(result, items, arr,target-arr[i], i+1);

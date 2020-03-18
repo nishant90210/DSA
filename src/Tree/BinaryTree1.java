@@ -183,7 +183,7 @@ public class BinaryTree1 {
 		tree.add(80);
 		tree.traverse(tree.root);
 
-		System.out.println("\nDelete 30");
+		System.out.println("\nDelete 70");
 		Node node = tree.deleteKey(tree.root, 70);
 
 		tree.traverse(node);

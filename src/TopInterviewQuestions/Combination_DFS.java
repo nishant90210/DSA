@@ -7,7 +7,7 @@ public class Combination_DFS {
 
     public static void main(String[] args) {
 
-        List<List<Integer>> list = combinationDFS(4, 2);
+        List<List<Integer>> list = combinationDFS(4, 3);
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }

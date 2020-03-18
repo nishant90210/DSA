@@ -5,85 +5,47 @@ public class MinimumJumps {
     //Linear Approach
     public static void main(String[] args) {
 
-//        int arr[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 2, 0, 1};
-        int arr[] = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
-        System.out.print("Minimum number of jumps to reach end is " + minJumps(arr));
+        int ar1[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int arr[] = {2, 0, 3, 5, 0, 0, 3, 0, 0, 6, 3};
+//        int arr[] = {2, 3, 1, 1, 4};
+        System.out.print("Minimum number of jumps to reach end is " + minJump(arr));
     }
 
-    private static int minJumps(int arr[])
-    {
-        if (arr.length <= 1)
-            return 0;
-
-        // Return -1 if not possible to jump
-        if (arr[0] == 0)
-            return -1;
-
-        // initialization
-        int maxReach = arr[0];
-        int step = arr[0];
-        int jump = 1;
-
-
-        // Start traversing array
-        for (int i = 1; i < arr.length; i++)
-        {
-            // Check if we have reached the end of the array
-            if (i == arr.length - 1)
-                return jump;
-
-            // updating maxReach
-            maxReach = Math.max(maxReach, i+arr[i]);
-
-            // we use a step to get to the current index
-            step--;
-
-            // If no further steps left
-            if (step == 0)
-            {
-                //  we must have used a jump
-                jump++;
-
-                //Check if the current index/position  or lesser index
-                // is the maximum reach point from the previous indexes
-                if(i>=maxReach)
-                    return -1;
-
-                // re-initialize the steps to the amount
-                // of steps to reach maxReach from position i.
-                step = maxReach - i;
-            }
-        }
-
-        return -1;
-    }
-
-    //Iterative
     private static int minJump(int[] arr) {
 
+        //Aggar 1 se kum element ho
         if (arr.length <= 1){
             return 0;
         }
+        //Aggar 1st element 0 ho to no jump
         if (arr[0] == 0){
             return 0;
         }
-        int ladder = arr[0];
-        int stairs = arr[0];
-        int jump = 1;
-        for(int level = 1; level < arr.length; level++){
-            if (level == arr.length - 1){
-                return jump;
+        //Jitni ladder utni stairs hongi
+        int ladder = arr[0], stairs = arr[0];
+        int jumps = 1;
+
+        //Looping through the array from 1 kyuki arr[0] to ladder aur stairs mein already de diya hai
+        for(int index = 1; index < arr.length; index++){
+
+            //Aggar last tak pahuch jaye to wahi se return ho jao
+            if (index == arr.length - 1){
+                return jumps;
             }
-            if (level + arr[level] > ladder) {
-                ladder = level + arr[level];
+            //Aggar agla element aur uska index, ladder se jyada ho to ladder replace kardo, kyuki lambi jump le sakenge
+            if (index + arr[index] > ladder){
+                ladder = index + arr[index];
             }
+            //Uske baad stairs ko kum karenge taki aggar ladder khatam ho jaye to jump karne ka pata chal jaye kyuki ladder khatam hone ke baad jump LENI hi padegi
             stairs--;
+            //Aggar stairs khatam ho gai to jump leni hi padegi
             if (stairs == 0){
-                jump++;
-                stairs = ladder - level;
+                //Aggar stairs khatam ho jaye to jump leni padegi
+                jumps++;
+                //Aur uske baad stairs bhi update karenge
+                stairs = ladder - index;
             }
         }
-        return jump;
+        return jumps;
     }
-
 }

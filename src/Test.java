@@ -206,10 +206,10 @@ public class Test {
 //        }
 //    }
 
-    public static void main(String[] args) {
-
-        Random random = new Random();
-        int i = random.nextInt((1 - 0) + 1) + 0;
-        System.out.println(i);
-    }
+//    public static void main(String[] args) {
+//
+//        Random random = new Random();
+//        int i = random.nextInt((1 - 0) + 1) + 0;
+//        System.out.println(i);
+//    }
 }
