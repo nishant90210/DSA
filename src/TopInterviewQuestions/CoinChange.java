@@ -4,8 +4,8 @@ public class CoinChange {
 
     public static void main(String[] args) {
 
-        int amount = 5;
-        int[] coins = { 1, 2, 3 };
+        int amount = 11;
+        int[] coins = { 1, 2, 5 };
         System.out.println("Total Ways : " + coinChangeDP(amount, coins));
     }
 

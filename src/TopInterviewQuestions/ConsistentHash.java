@@ -1,16 +1,12 @@
 package TopInterviewQuestions;
 
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 
 class HashFunction{
 
-
     public Integer hash(String str) {
-        Integer hashValue = 0;
-        Integer n = 0;
+        Integer hashValue = Integer.parseInt(str);
+        Integer n = 2;
         Integer serverIndex = hashValue % n;
         return serverIndex;
     }
@@ -66,5 +62,14 @@ public class ConsistentHash<T> {
             hash = tailMap.isEmpty() ? circle.firstKey() : tailMap.firstKey();
         }
         return circle.get(hash);
+    }
+
+    public static void main(String[] args) {
+        HashFunction hashFunction = new HashFunction();
+        List<Integer> integers = new ArrayList<>();
+        integers.add(1);
+        integers.add(2);
+        integers.add(3);
+        ConsistentHash consistentHash = new ConsistentHash(hashFunction, 4, integers);
     }
 }

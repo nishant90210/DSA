@@ -38,10 +38,8 @@ public class KDistanceNodeBST {
         queue.add(startNode);
 
     /*
-      The is an undirected graph now that we can go to and from nodes.
-      Before we could only go down the tree.
-      Therefore, we need a hashtable to keep track of nodes we have
-      visited so that we do not go back and revisit what has already
+      This is an undirected graph now that we can go to and from nodes. Before we could only go down the tree.
+      Therefore, we need a hashtable to keep track of nodes we have visited so that we do not go back and revisit what has already
       been processed and cause an infinite cycle
     */
         Set<Node> seen = new HashSet();
@@ -54,14 +52,12 @@ public class KDistanceNodeBST {
             }
 
       /*
-        How large is this layer? Let's process all node in the layer.
-        This is Breadth First Search.
+        How large is this layer? Let's process all node in the layer. This is Breadth First Search.
       */
             int layerSize = queue.size();
             for (int i = 0; i < layerSize; i++) {
         /*
-          Pull a node from the search queue, we are going to basically
-          use our current layer to populate the next layer of nodes
+          Pull a node from the search queue, we are going to basically use our current layer to populate the next layer of nodes
           that we need to search in the next while loop iteration
         */
                 Node currentNode = queue.poll();
@@ -85,8 +81,7 @@ public class KDistanceNodeBST {
 
             currentLayer++;
         }
-
-        return new ArrayList<Integer>();
+        return new ArrayList<>();
     }
 
     private static List<Integer> extractLayerFromQueue(Queue<Node> queue) {
@@ -109,10 +104,8 @@ public class KDistanceNodeBST {
         }
         nodeToParentMap.put(root, parent);
         /*
-          Go left and after that go right. The call that we make next
-          will have what we call 'root' now as the 'parent' value so
-          we can do the mapping in THAT call stack frame...and so on
-          and so on...
+          Go left and after that go right. The call that we make next will have what we call 'root' now as the 'parent' value so
+          we can do the mapping in THAT call stack frame...and so on and so on...
         */
         populateNodeToParentMap(nodeToParentMap, root.left, root);
         populateNodeToParentMap(nodeToParentMap, root.right, root);

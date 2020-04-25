@@ -10,9 +10,9 @@ public class Swap {
         Integer a = 7;
         Integer b = 5;
 
-        a = a+ b;
-        b = a -b;
-        a = a -b;
+        a = a + b;
+        b = a - b;
+        a = a - b;
 
         System.out.println("a " + a);
         System.out.println("b " + b);

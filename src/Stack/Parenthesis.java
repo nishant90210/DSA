@@ -5,45 +5,37 @@ import java.util.Stack;
 
 public class Parenthesis {
 
-    public static final HashMap<Character, Character> brackets = new HashMap<Character, Character>(){
-        {
-            put('[',']');
-            put('{','}');
-            put('(',')');
-        }
-    };
-
-    public static final Stack<Character> stack = new Stack<Character>();
-
-
     public static void main(String[] args) {
 
-        if(ifBalanced("{(}[]{)}")){
+        if(ifBalanced("()[]{}")){
             System.out.println("Balanced");
         }else{
             System.out.println("UnBalanced");
         }
     }
 
-
-
     private static boolean ifBalanced(String str) {
 
+        HashMap<Character, Character> map = new HashMap<>();
+        map.put('(', ')');
+        map.put('[', ']');
+        map.put('{', '}');
+
+        Stack<Character> stack = new Stack<>();
+
         for (int i = 0; i < str.length(); i++) {
-            if(brackets.containsKey(str.charAt(i))){
-                stack.push(str.charAt(i));
-                continue;
-            }
-            else if (stack.isEmpty()){
-                return false;
-            }
-            else if (str.charAt(i) == brackets.get(stack.pop())){
-                continue;
+            char curr = str.charAt(i);
+
+            if (map.keySet().contains(curr)) {
+                stack.push(curr);
+            } else if (map.values().contains(curr)) {
+                if (!stack.empty() && map.get(stack.peek()) == curr) {
+                    stack.pop();
+                } else {
+                    return false;
+                }
             }
         }
-        if (!stack.isEmpty()){
-            return false;
-        }
-        return true;
+        return stack.empty();
     }
 }

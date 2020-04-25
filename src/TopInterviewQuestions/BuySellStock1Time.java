@@ -1,13 +1,14 @@
 package TopInterviewQuestions;
 
+//https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 public class BuySellStock1Time {
 
     public static void main(String args[])
     {
         // stock prices on consecutive days
-        int prices[] = { 100, 90, 80, 70, 60};
+        int prices[] = { 7, 1, 5, 3, 6, 4 };
         int n = prices.length;
-        System.out.println("lenght" + n);
+        System.out.println("length" + n);
         calculateProfit(prices, n);
     }
 

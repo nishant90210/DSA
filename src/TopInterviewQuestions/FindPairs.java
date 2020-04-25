@@ -2,6 +2,7 @@ package TopInterviewQuestions;
 
 import java.util.HashMap;
 
+//Find pairs whose sum is equal to each other
 public class FindPairs {
 
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package TopInterviewQuestions;
 
-public class MaximumPathSum {
+public class MinimumPathSum {
 
     public static void main(String args[])
     {

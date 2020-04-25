@@ -1,4 +1,6 @@
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Test {
 
@@ -212,4 +214,53 @@ public class Test {
 //        int i = random.nextInt((1 - 0) + 1) + 0;
 //        System.out.println(i);
 //    }
+
+    // METHOD SIGNATURE BEGINS, THIS METHOD IS REQUIRED
+    int connection = 0;
+    List<List<Integer>> criticalRouters(int numRouters, int numLinks, ArrayList<ArrayList<Integer>> links) {
+        // WRITE YOUR CODE HERE
+        int[] depth = new int[numRouters];
+        Arrays.fill(depth, -1);
+        int[] low = new int[numRouters];
+        List<Integer>[] graph = new ArrayList[numRouters];
+        for (int i = 0; i < numRouters ; i++) {
+            graph[i] = new ArrayList<Integer>();
+        }
+        for (List<Integer> link : links){
+            int from = link.get(0);
+            int to = link.get(1);
+            graph[from].add(to);
+            graph[to].add(from);
+        }
+
+        List<List<Integer>> result = new ArrayList();
+        for (int i = 0; i < numRouters ; i++){
+            if (depth[i] == -1){
+                dfs(i , depth, low, graph, result, i);
+            }
+        }
+        return result;
+    }
+
+    public void dfs(int i, int[] depth, int[] low, List<Integer>[] graph, List<List<Integer>> result, int parent){
+        connection++;
+        depth[i] = connection;
+        low[i] = connection;
+        List<Integer> children  = graph[i];
+        for(int v : children){
+            if (v == parent){
+                continue;
+            }else{
+                if(depth[v] == -1){
+                    dfs(v, depth, low, graph,result, i);
+                    low[i] = Math.min(low[i], low[v]);
+                    if(low[v] > depth[i]){
+                        result.add(Arrays.asList(i , v));
+                    }
+                }else{
+                    low[i] = Math.min(low[i], low[v]);
+                }
+            }
+        }
+    }
 }

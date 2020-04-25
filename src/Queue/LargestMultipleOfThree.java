@@ -51,9 +51,9 @@ public final class LargestMultipleOfThree {
     }
 
     public static int divThree(int[] a) {
-        final java.util.Queue<Integer> queue0 = new LinkedList<Integer>(); // if num % 3 == 0, store num in queue0.
-        final java.util.Queue<Integer> queue1 = new LinkedList<Integer>(); // if num % 3 == 1, store num in queue1.
-        final java.util.Queue<Integer> queue2 = new LinkedList<Integer>(); // if num % 3 == 2, store num in queue2.
+        final java.util.Queue<Integer> queue0 = new LinkedList<>(); // if num % 3 == 0, store num in queue0.
+        final java.util.Queue<Integer> queue1 = new LinkedList<>(); // if num % 3 == 1, store num in queue1.
+        final java.util.Queue<Integer> queue2 = new LinkedList<>(); // if num % 3 == 2, store num in queue2.
 
         Arrays.sort(a);
 

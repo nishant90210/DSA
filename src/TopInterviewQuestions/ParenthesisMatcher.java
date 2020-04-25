@@ -12,8 +12,6 @@ import java.util.Stack;
  */
 public class ParenthesisMatcher {
 
-    private static final Scanner scan = new Scanner(System.in);
-
     public static void main(String[] args) throws IOException {
 
         String inputSentence = "(I want (to write a language parser), would (you) help me)";

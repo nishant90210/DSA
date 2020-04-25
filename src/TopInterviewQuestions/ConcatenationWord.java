@@ -1,15 +1,44 @@
 package TopInterviewQuestions;
 
+import java.util.*;
+
 public class ConcatenationWord {
 
-    public static void main(String args[])
-    {
-        // Let the given dictionary be following
-        String[] dictionary = {"news", "newspa", "paper", "geek"};
+    public static void main(String args[]) {
+        String[] dictionary = {"cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses","rat","ratcatdogcat"};
+        List<String> allConcatenatedWordsInADict = findAllConcatenatedWordsInADict(dictionary);
+        for (String s : allConcatenatedWordsInADict) {
+            System.out.println(s);
+        }
 
-        String word = "newspaper"; //word to be formed
+    }
+    public static List<String> findAllConcatenatedWordsInADict(String[] words) {
+        List<String> result = new ArrayList();
+        Set<String> wordSet = new HashSet();
+        Arrays.sort(words, Comparator.comparingInt(String::length));
+        for(String word : words) {
+            if(canBeConcatenated(word, wordSet)){
+                result.add(word);
+            }else{
+                wordSet.add(word);
+            }
+        }
+        return result;
+    }
 
-        String substring = word.substring(4);
-        System.out.println(substring);
+    public static boolean canBeConcatenated(String word, Set<String> wordSet){
+
+        boolean[] fullWordCheck = new boolean[word.length()+1];
+        fullWordCheck[0] = true;
+        for(int i = 0; i <= word.length(); i++){
+            for(int j = 0; j < i; j++){
+                String subString = word.substring(j, i);
+                if(fullWordCheck[j] && wordSet.contains(subString)){
+                    fullWordCheck[i] = true;
+                    break;
+                }
+            }
+        }
+        return fullWordCheck[word.length()];
     }
 }

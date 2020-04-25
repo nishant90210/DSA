@@ -8,8 +8,8 @@ public class BuildTreeFromInAndPre {
     private static int pIndex = 0;
     public static void main(String[] args) {
 
-        int in[] = {4, 2, 5, 1, 3, 6};
-        int pre[] =  {1, 2, 4, 5, 3, 6};
+        int in[] = {1,5,7,8,10,12};
+        int pre[] =  {8,5,1,7,10,12};
         BuildTreeFromInAndPre buildBST = new BuildTreeFromInAndPre();
         Node node = buildBST.buildTree(in, pre, 0, in.length - 1);
         buildBST.printInOrder(node);
@@ -24,9 +24,9 @@ public class BuildTreeFromInAndPre {
         }
         Node root = new Node(pre[pIndex]);
         pIndex++;
-        if (iStart == iEnd){
-            return root;
-        }
+//        if (iStart == iEnd){
+//            return root;
+//        }
         int inArrayIndex = getArrayIndex(in, root.data);
         root.left = buildTree(in, pre, iStart, inArrayIndex-1);
         root.right = buildTree(in, pre, inArrayIndex+1, iEnd);

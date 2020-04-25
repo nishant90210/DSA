@@ -22,7 +22,7 @@ public class BurnBST {
         root.left.right = new Node(12);
         root.left.right.left = new Node(10);
         root.left.right.right = new Node(14);
-        Node target = root.left.right; // 12
+        Node target = root.left; // 8
         printBurntNodes(root, target);
     }
 

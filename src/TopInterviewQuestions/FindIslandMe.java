@@ -6,9 +6,10 @@ public class FindIslandMe {
 
         int count = 0;
         int mat[][] = {
-                {1,1,1},
-                {0,1,0},
-                {0,0,1}
+                {1,1,0,0,0},
+                {1,1,0,0,0},
+                {0,0,1,0,0},
+                {0,0,0,1,1}
         };
 
         if (mat.length == 0){

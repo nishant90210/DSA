@@ -26,12 +26,12 @@ public class FactorsCombination {
             result.add(new ArrayList<>(items));
             return;
         }
+        if (product > n){
+            return;
+        }
 
         for(int i = start; i <= n/2; i++){
-            if (product > n){
-                break;
-            }
-            if (i % 2 == 0){
+            if (i % 2 == 0){ //this for reducing the time complexity
                 items.add(i);
                 dfs(result, items, i*product, n, i);
                 items.remove(items.size() - 1);

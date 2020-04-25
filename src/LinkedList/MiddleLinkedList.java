@@ -88,13 +88,14 @@ public class MiddleLinkedList {
 
     public static void main(String[] args) {
         MiddleLinkedList llist = new MiddleLinkedList();
-        for (int i=4; i>0; --i)
+        for (int i=6; i>0; --i)
         {
             llist.push(i);
             llist.printList();
-            llist.printMiddle();
+//            llist.printMiddle();
         }
-        System.out.println("Count is " + llist.printMiddleByCounting());
+//        System.out.println("Count is " + llist.printMiddleByCounting());
+        llist.printMiddle();
     }
 
 }

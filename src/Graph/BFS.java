@@ -1,6 +1,7 @@
 package Graph;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Created by NISHANT on 2/15/18.
@@ -38,7 +39,7 @@ public class BFS {
     private void printBFS(int start) {
 
         boolean[] visited = new boolean[vertices];
-        LinkedList<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
         visited[start] = true;
         queue.add(start);
         while (!queue.isEmpty()){
