@@ -3,6 +3,8 @@ package TopInterviewQuestions;
 //https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/
 public class HeightBalancedBST {
 
+    /* |LeftSubTree Height - RightSubTree Height| <= 1  */
+
     public static void main(String[] args) {
 
         BurnBST.Node root = new BurnBST.Node(3);

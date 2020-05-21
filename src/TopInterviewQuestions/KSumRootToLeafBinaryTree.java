@@ -2,11 +2,11 @@ package TopInterviewQuestions;
 
 public class KSumRootToLeafBinaryTree {
 
-    static class Node {
+    public static class Node {
 
-        int data;
-        Node left;
-        Node right;
+        public int data;
+        public Node left;
+        public Node right;
 
         public Node(int data) {
             this.data = data;
@@ -17,7 +17,7 @@ public class KSumRootToLeafBinaryTree {
 
     public static void main(String[] args) {
 
-        int sum = 18;
+        int sum = 23;
         Node root = new Node(10);
         root.left = new Node(8);
         root.right = new Node(2);

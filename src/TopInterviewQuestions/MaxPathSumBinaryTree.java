@@ -1,14 +1,15 @@
 package TopInterviewQuestions;
 
+//https://leetcode.com/problems/binary-tree-maximum-path-sum/
 public class MaxPathSumBinaryTree {
 
     private static int max_path_sum = Integer.MIN_VALUE;
 
-    static class Node {
+    public static class Node {
 
-        int data;
-        Node left;
-        Node right;
+        public int data;
+        public Node left;
+        public Node right;
 
         public Node(int data) {
             this.data = data;

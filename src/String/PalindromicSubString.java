@@ -3,7 +3,7 @@ package String;
 /**
  * Created by Nishant on Dec, 2018
  */
-public class PalindromicSubStringString {
+public class PalindromicSubString {
 
     public static void main(String[] args) {
         String str = "ananananddd";

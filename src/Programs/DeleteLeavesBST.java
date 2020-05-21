@@ -14,14 +14,17 @@ public class DeleteLeavesBST {
     }
 
     public static TrimBST.TreeNode removeLeafNodes(TrimBST.TreeNode root, int target) {
-        if(root.left == null && root.val == target){
-            root.left = null;
+
+        if (root.left != null) {
+            root.left = removeLeafNodes(root.left, target);
         }
-        removeLeafNodes(root.left, target);
-        if(root.right == null && root.val == target){
-            root = null;
+        if (root.right != null) {
+            root.right = removeLeafNodes(root.right, target);
         }
-        removeLeafNodes(root.right, target);
-        return root;
+        if (root.left == null && root.right == null && root.val == target){
+            return null;
+        }else {
+            return root;
+        }
     }
 }

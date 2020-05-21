@@ -8,16 +8,17 @@ public class MajorityElement {
 
     public static void main(String[] args)
     {
-        int a[] = new int[]{2, 2, 3, 5, 2, 2, 6};
+        int a[] = new int[]{1,3,4,4,1,4,4};
 //        int a[] = new int[]{1, 3, 3, 1, 2};
         int size = a.length;
         int candidate = printMajority(a, size);
         System.out.println(candidate);
-        if (isMajority(a, candidate, size)){
-            System.out.println(" " + candidate + " ");
-        }else {
-            System.out.println("No Majority Element");
-        }
+//        System.out.println(candidate);
+//        if (isMajority(a, candidate, size)){
+//            System.out.println(" " + candidate + " ");
+//        }else {
+//            System.out.println("No Majority Element");
+//        }
     }
 
     private static boolean isMajority(int[] a, int candidate, int size) {

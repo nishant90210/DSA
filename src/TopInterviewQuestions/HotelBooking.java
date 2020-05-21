@@ -7,7 +7,7 @@ import java.util.Collections;
 /**
  * Created by NISHANT on 3/31/18.
  */
-//  http://qa.geeksforgeeks.org/3634/find-out-whether-there-are-enough-rooms-hotel-satisfy-demand
+//  https://www.geeksforgeeks.org/find-k-bookings-possible-given-arrival-departure-times/
 public class HotelBooking {
 
     public static void main (String[] args) {
@@ -25,25 +25,22 @@ public class HotelBooking {
 
         Collections.sort(arrive);
         Collections.sort(depart);
-        int begin = arrive.get(0);
-        int end = depart.get(depart.size() - 1);
-        int booked = 0;
         int arrivalIndex = 0;
         int departureIndex = 0;
+        int size = arrive.size();
+        int count = 0;
 
-        for (int i = begin; i < end; i++) {
-            while (arrivalIndex < arrive.size() && arrive.get(arrivalIndex) == i){
-                booked++;
+        while (arrivalIndex < size && departureIndex < size){
+
+            if (arrive.get(arrivalIndex) < depart.get(departureIndex)){
                 arrivalIndex++;
-            }
-            while (departureIndex < depart.size() && depart.get(departureIndex) == i){
-                if (booked >= 1 ){
-                    booked--;
+                count++;
+                if (count > k) {
+                    return false;
                 }
+            }else {
                 departureIndex++;
-            }
-            if (booked > k){
-                return false;
+                count--;
             }
         }
         return true;

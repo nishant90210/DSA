@@ -2,12 +2,12 @@ package TopInterviewQuestions;
 
 import java.util.Arrays;
 
-//https://www.youtube.com/watch?v=fV-TF4OvZpk ,go to 7:22 time
+//https://www.youtube.com/watch?v=fV-TF4OvZpk&t=07m20s
 public class LongestIncreasingSubsequence {
 
     public static void main(String[] args) {
 
-        int arr[] = { 9,1,3,7,5,6,20 };
+        int arr[] = { 10,9,2,5,3,7,101,18 };
         int n = arr.length;
         System.out.println("Length of lis is " + lengthOfLIS(arr) + "\n" );
 
@@ -39,7 +39,7 @@ public class LongestIncreasingSubsequence {
       /*
         Test every possible end index of a longest increasing subsequence
       */
-        for (int i = 1; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
 
         /*
           We aim to see if we can append the item at nums[i] to extend the Longest Increasing Subsequence achieved
@@ -49,8 +49,8 @@ public class LongestIncreasingSubsequence {
           2.) maxLength[j] + 1: The value of maxLength[j] is the length of the LIS from 0...j, we conceptually "append" this item to
           that LIS by adding 1 to that subproblem answer, yielding a potentially new answer for LIS[0..i]
         */
-            for (int j = 0; j < i; j++){
-                if (nums[i] > nums[j]) {
+            for (int j = 1; j < i; j++){
+                if (nums[j] < nums[i]) {
                     maxLength[i] = Math.max(maxLength[i], maxLength[j] + 1);
                 }
             }

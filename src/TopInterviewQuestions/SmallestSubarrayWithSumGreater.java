@@ -4,7 +4,7 @@ package TopInterviewQuestions;
  * Created by NISHANT on 4/2/18.
  */
 public class SmallestSubarrayWithSumGreater {
-
+// similar concept as MinimumWindowSubstring
     public static void main(String[] args)
     {
 //        int arr[] = {2, 3, 1, 1, -1, 3, 4};
@@ -20,23 +20,16 @@ public class SmallestSubarrayWithSumGreater {
         System.out.println(res);
     }
 
-    private static int smallestSubWithSum(int[] arr, int length, int target) {
-
-        int min = length+1;
-        for (int i = 0; i < length; i++) {
-            int sum = arr[i];
-            if (sum >= target){
-                return 1;
+    private static int smallestSubWithSum(int[] nums, int length, int target) {
+        //Works for positive numbers only
+        int leftStart = 0, min = Integer.MAX_VALUE, sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            while (sum >= target){
+                min = Math.min(min, i - leftStart + 1);
+                sum -= nums[leftStart];
+                leftStart++;
             }
-            for (int j = i+1; j < length; j++) {
-                sum += arr[j];
-                if (sum >= target && j-i+1 < min){
-                    min = j-i+1;
-                }
-            }
-        }
-        if(min > length){
-            return -1;
         }
         return min;
     }

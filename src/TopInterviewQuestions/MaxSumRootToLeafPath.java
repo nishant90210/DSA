@@ -14,8 +14,7 @@ public class MaxSumRootToLeafPath {
     }
 
     // Function to print root-to-leaf path having given sum in a binary tree
-    public static boolean printPath (Node root, int sum)
-    {
+    public static boolean printPath (Node root, int sum) {
         // base case
         if (sum == 0) {
             return true;

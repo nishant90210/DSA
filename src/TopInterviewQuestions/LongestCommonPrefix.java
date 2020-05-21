@@ -8,12 +8,12 @@ public class LongestCommonPrefix {
 
     public static void main(String[] args) {
 
-        String arr[] = {"geeks", "geeksforgeeks", "geek", "geezer"};
+        String arr[] = {"geeks", "geeksforgeeks", "geek", "geeker"};
         String s = longestCommonPrefix(arr);
         System.out.println(s);
     }
 
-    // Pure functions should generally be declared "static"
+    // Pure functions(which only does some manipulation) should generally be declared "static"
     private static String longestCommonPrefix(String[] strings) {
 
         if (strings.length == 0){

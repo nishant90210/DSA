@@ -28,7 +28,7 @@ public class TwoNonRepeatingElements {
         int set_bit_no = 0; /* Will have only single set bit of xor */
 
         /* Get the xor of all elements in arr[]. The xor will basically be xor of two odd occurring elements */
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 1; i < arr.length; i++) {
             xor ^= arr[i];
         }
 

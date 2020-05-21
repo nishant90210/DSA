@@ -3,6 +3,7 @@ package TopInterviewQuestions;
 /**
  * Created by NISHANT on 7/5/18.
  * https://www.youtube.com/watch?v=xCbYmUPvc2Q
+ * https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
  */
 public class KnapsackProblem {
 
@@ -22,12 +23,14 @@ public class KnapsackProblem {
 
         for(int i = 0; i <= weight.length; i++){
             for(int j = 0; j <= maxWeight; j++){
-                if (i == 0 || j == 0){
+                if (i == 0 || j == 0) {
                     dp[i][j] = 0;
-                } else if (weight[i-1] <= j){
-                    dp[i][j] = Math.max(dp[i-1][j], (dp[i-1][j-weight[i-1]] + value[i-1]));
-                } else {
+                } else if (weight[i-1] > j){
                     dp[i][j] = dp[i-1][j];
+                }else {
+                    int withoutItem = dp[i-1][j];
+                    int withItem = value[i-1] + dp[i-1][j - weight[i-1]];
+                    dp[i][j] = Math.max(withoutItem, withItem);
                 }
             }
         }

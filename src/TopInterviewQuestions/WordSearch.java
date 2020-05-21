@@ -2,7 +2,6 @@ package TopInterviewQuestions;
 
 public class WordSearch {
 
-    static String givenWord = "SEE";
     public static void main(String[] args) {
 
         String givenWord = "SEE";
@@ -35,7 +34,7 @@ public class WordSearch {
             return false;
         }
         char temp = board[i][j];
-        board[i][j] = ' ';
+        board[i][j] = '$';
         boolean found =
                 walk(board, i+1, j, count+1, givenWord) ||
                 walk(board, i, j+1, count+1, givenWord) ||

@@ -12,7 +12,7 @@ public class ContiguousSubarraySumEqualsK {
 
         int count = 0;
 
-//        getSubArrayCountInOn2(nums, n, target, count);
+        getSubArrayCountInOn2(nums, n, target, count);
         getSubArrayCountInOn(nums, n, target, count);
     }
 

@@ -39,21 +39,20 @@ public class LongestPalindromicSubsequence {
 
     // If there are more than two characters, and first and last characters are same
     //  Else L(i, j) =  L(i + 1, j - 1) + 2
-    private static int longestPalindromeDP(String s1) {
+    private static int longestPalindromeDP(String s) {
 
-        int s1length = s1.length();
-        int matrix[][] = new int[s1length][s1length];
-        for (int i = 0; i <= s1length; i++) {
-            for (int j = 0, x = i; x <= s1length-1; j++, x++) {
-                if (x == j){
-                    matrix[j][x] = 1;
-                } else if (s1.charAt(j) == s1.charAt(x)){
-                    matrix[j][x] = 2 + matrix[j+1][x-1];
-                } else if (s1.charAt(j) != s1.charAt(x)){
-                    matrix[j][x] = Math.max(matrix[j][x-1], matrix[j+1][x]);
+        int[][] dp = new int[s.length()][s.length()];
+        for(int i = s.length()-1; i >= 0; i--){
+            dp[i][i] = 1;
+            for(int j= i+1; j < s.length(); j++){
+                if(s.charAt(i) == s.charAt(j)) {
+                    dp[i][j] = 2 + dp[i + 1][j - 1];
+                }
+                else {
+                    dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
                 }
             }
         }
-        return matrix[0][s1length-1];
+        return dp[0][s.length()-1];
     }
 }

@@ -4,9 +4,10 @@ import java.util.*;
 //https://www.geeksforgeeks.org/burn-the-binary-tree-starting-from-the-target-node/
 public class BurnBST {
 
-    static class Node {
+    public static class Node {
         int data;
-        Node left, right;
+        public Node left;
+        public Node right;
 
         public Node(int data) {
             this.data = data;

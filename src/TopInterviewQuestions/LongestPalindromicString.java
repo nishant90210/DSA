@@ -1,7 +1,5 @@
 package TopInterviewQuestions;
 
-import Recursion.Fibonacci;
-
 //For more explanation https://www.youtube.com/watch?v=UflHuQj6MVA
 
 //For every i; palindrom[i][i] = true
@@ -12,8 +10,10 @@ public class LongestPalindromicString {
 
     public static void main(String[] args) {
 
-        String s1 = "BABAD";
-        System.out.println("LCSubstring is " + calculateLPSS(s1));
+        String s1 = "CBBD";
+//        System.out.println("LCSubstring is " + calculateLPSS(s1));
+        LongestPalindromicString lps = new LongestPalindromicString();
+        System.out.println("LCSubstring is " + lps.longestPalindrome(s1));
     }
 
     public static String calculateLPSS(String input) {
@@ -39,5 +39,32 @@ public class LongestPalindromicString {
             }
         }
         return input.substring(startIndex, endIndex+1);
+    }
+
+
+    public String longestPalindrome(String input) {
+        String max = "";
+
+        for(int i = 0; i < input.length(); i++) {
+            String s1 = extendPalindrome(input, i, i);			// Extend assuming the length of Longest Palindromic Substring is odd
+            String s2 = extendPalindrome(input, i, i + 1);		// Extend assuming the length of Longest Palindromic Substring is even
+
+            if(s1.length() > max.length()) {
+                max = s1;
+            }
+            if(s2.length() > max.length()) {
+                max = s2;
+            }
+        }
+        return max;
+    }
+
+    private String extendPalindrome(String s, int start, int end) {
+        while(start >= 0 && end < s.length() && s.charAt(start) == s.charAt(end)) {
+            start--;
+            end++;
+        }
+        String substring = s.substring(start + 1, end);
+        return substring;
     }
 }

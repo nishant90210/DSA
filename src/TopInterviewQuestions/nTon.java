@@ -27,7 +27,7 @@ public class nTon {
 //        }
 //    }
 
-    //    Below is the snapshot of the double ton pattern. getInstance() method will return the instance as a round robin fashion.
+//    Below is the snapshot of the double ton pattern. getInstance() method will return the instance as a round robin fashion.
 //    private static nTon[] doubleTon;
 //    private static int index;
 //

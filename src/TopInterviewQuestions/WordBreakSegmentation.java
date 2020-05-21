@@ -8,10 +8,10 @@ public class WordBreakSegmentation {
     public static void main(String[] args)
     {
         // List of Strings to represent dictionary
-        List<String> dict = Arrays.asList("I" , "have", "Jain", "Sumit", "am", "this", "dog");
+        List<String> dict = Arrays.asList("a" , "have", "Jain", "Sumit", "am", "this", "dog");
 
         // input String
-        String str = "thisisadog";
+        String str = "thisamadog";
 
         boolean b = wordBreak(str, dict);
         System.out.println(b);

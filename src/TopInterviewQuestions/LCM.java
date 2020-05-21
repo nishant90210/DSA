@@ -1,6 +1,9 @@
 package TopInterviewQuestions;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * Created by NISHANT on 3/16/18.
@@ -22,17 +25,15 @@ public class LCM {
         y = scanner.nextInt();
 
         int gcd = gcd(x, y);
-        int lcm = (x * y) / gcd(x, y);
-        System.out.println("GCD "  + gcd);
+        int lcm = (x * y) / gcd;
+        System.out.println("GCD OR HCF "  + gcd);
         System.out.println("LCM " + lcm);
     }
 
-    static int gcd(int a, int b)
-    {
+    static int gcd(int a, int b) {
         if (b == 0) {
             return a;
         }
-        int gcd = gcd(b, a % b);
-        return gcd;
+        return gcd(b, a % b);
     }
 }

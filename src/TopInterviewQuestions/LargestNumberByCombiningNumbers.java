@@ -7,7 +7,8 @@ public class LargestNumberByCombiningNumbers {
     public static void main(String[] args) {
 
         int[] arr = {3, 30, 34, 5, 9};
-        largestNumber(arr);
+        String s = largestNumber(arr);
+        System.out.println(s);
     }
 
     private static String largestNumber(int[] arr) {

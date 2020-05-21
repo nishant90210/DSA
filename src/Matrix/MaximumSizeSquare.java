@@ -4,12 +4,10 @@ public class MaximumSizeSquare {
 
     public static void main(String[] args) {
 
-        int[][] mat = { {0, 1, 1, 0, 1},
-                        {1, 1, 0, 1, 0},
-                        {0, 1, 1, 1, 0},
-                        {1, 1, 1, 1, 0},
+        int[][] mat = { {1, 0, 1, 0, 0},
+                        {1, 0, 1, 1, 1},
                         {1, 1, 1, 1, 1},
-                        {0, 0, 0, 0, 0} };
+                        {1, 0, 0, 1, 0} };
 
         int[][] resultMat = new int[mat.length][mat[0].length];
         int maxSquare = calculateMaxSquare(mat, resultMat);
@@ -31,6 +29,6 @@ public class MaximumSizeSquare {
                 }
             }
         }
-        return max;
+        return max*max;
     }
 }

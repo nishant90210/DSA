@@ -12,14 +12,13 @@ public class FirstNonRepeatingCharacter {
 
 	public static void main(String[] args) {
 
-		String str = "geeksforgeeks";
+		String str = "leetcode";
 		int index =  firstNonRepeating(str);
-		System.out.println(index == -1 ? "Either all characters are repeating or string " +
-				"is empty" : "First non-repeating character is " +  str.charAt(index));
+		System.out.println(index == -1 ? "Either all characters are repeating or string is empty" :
+				"First non-repeating character is " +  str.charAt(index));
 	}
 
-	static void getCharCountArray(String str)
-	{
+	static void getCharCountArray(String str) {
 		for (int i = 0; i < str.length();  i++)
 			count[str.charAt(i)]++;
 	}

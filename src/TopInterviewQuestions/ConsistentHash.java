@@ -13,10 +13,10 @@ class HashFunction{
 }
 
 /*
-The circle is represented as a sorted map of integers, which represent the hash values, to caches (of type T here).
-When a ConsistentHash object is created each node is added to the circle map a number of times (controlled by numberOfReplicas).
-The location of each replica is chosen by hashing the node's name along with a numerical suffix, and the node is stored at each of
-these points in the map.
+    The circle is represented as a sorted map of integers, which represent the hash values, to caches (of type T here).
+    When a ConsistentHash object is created each node is added to the circle map a number of times (controlled by numberOfReplicas).
+    The location of each replica is chosen by hashing the node's name along with a numerical suffix, and the node is stored at each of
+    these points in the map.
  */
 public class ConsistentHash<T> {
 
@@ -47,10 +47,10 @@ public class ConsistentHash<T> {
     }
 
     /*
-    To find a node for an object (the get method), the hash value of the object is used to look in the map.
-    Most of the time there will not be a node stored at this hash value (since the hash value space is typically much larger than
-    the number of nodes, even with replicas), so the next node is found by looking for the first key in the tail map. If the tail map
-    is empty then we wrap around the circle by getting the first key in the circle.
+        To find a node for an object (the get method), the hash value of the object is used to look in the map.
+        Most of the time there will not be a node stored at this hash value (since the hash value space is typically much larger than
+        the number of nodes, even with replicas), so the next node is found by looking for the first key in the tail map. If the tail map
+        is empty then we wrap around the circle by getting the first key in the circle.
     */
     public T get(Object key) {
         if (circle.isEmpty()) {

@@ -44,7 +44,11 @@ public class MergeIntervals {
 //      lambda expression Comparator
 //      Arrays.sort(arr, (i1, i2) -> i1.start - i2.start);
 
+        //Sort the intervals based on increasing order of starting time.
         Arrays.sort(arr, Comparator.comparingInt(i -> i.start));
+        for (Interval interval : arr) {
+            System.out.println(interval);
+        }
 
         List<Interval> intervals = mergeIntervals(arr);
         for (Interval interval : intervals) {

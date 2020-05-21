@@ -8,13 +8,12 @@ public class DecimalToBinary {
         int n = 8;
         int quotient = 0;
         int result = 0;
-
         result = decimalToBinary(m, quotient);
         for(int i = m+1; i <= n; i++){
             int binaryVal = decimalToBinary(i, quotient);
             result = result & binaryVal;
         }
-        result = binaryTodecimal(result);
+        result = binaryTodecimal(~5);
         System.out.println(result);
     }
 

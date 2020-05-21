@@ -8,9 +8,8 @@ public class WordBreak {
     public static void main(String[] args)
     {
         // List of Strings to represent dictionary
-        List<String> dict = Arrays.asList("mobile","samsung","sam","sung",
-                "man","mango", "icecream","and",
-                "go","i","love","ice","cream");
+        List<String> dict = Arrays.asList("mobile","samsung","sam","sung","man","mango",
+                "icecream","and","go","i","love","ice","cream");
 
         // input String
         String str = "ilovesamsungmobile";

@@ -5,7 +5,6 @@ public class LongestIncreasingPathMatrix {
     public static void main(String[] args) {
 
         int[] max = new int[1];
-        int maxV = 0;
         int count = 1;
         int mat[][] = {
                         {9,9,4},

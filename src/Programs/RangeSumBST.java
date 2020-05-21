@@ -1,7 +1,5 @@
 package Programs;
 
-import javax.swing.tree.TreeNode;
-
 public class RangeSumBST {
 
     static ValidateBST.Node newTree = null;
