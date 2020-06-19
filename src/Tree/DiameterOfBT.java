@@ -42,7 +42,7 @@ public class DiameterOfBT {
         int rightHeight = calculateHeight(root.right);
         int leftDiameter = calculateDiameter(root.left);
         int rightDiameter = calculateDiameter(root.right);
-        int diameter = Math.max((leftHeight+rightHeight+1), Math.max(leftDiameter, rightDiameter));
+        int diameter = Math.max((leftHeight+rightHeight), Math.max(leftDiameter, rightDiameter));
         return diameter;
     }
 
