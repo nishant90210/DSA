@@ -29,14 +29,14 @@ public class DLLFromBinaryTree {
 
     private void printInOrder(Node root) {
 
-        if (root == null){
+        if (root == null) {
             return;
-        }else {
-            if (root.left != null){
+        } else {
+            if (root.left != null) {
                 printInOrder(root.left);
             }
-            System.out.print(" "+root.data);
-            if (root.right != null){
+            System.out.print(" " + root.data);
+            if (root.right != null) {
                 printInOrder(root.right);
             }
         }
@@ -44,8 +44,7 @@ public class DLLFromBinaryTree {
 
     private void printList(Node node) {
 
-        while (node != null)
-        {
+        while (node != null) {
             System.out.print(node.data + " ");
             node = node.right;
         }
@@ -54,24 +53,24 @@ public class DLLFromBinaryTree {
     private void binaryTree2DoubleLinkedList(Node root) {
 
         // Base case
-        if (root == null){
+        if (root == null) {
             return;
         }
+        // Recursively convert right subtree
+        binaryTree2DoubleLinkedList(root.right);
+
+        // insert root into DLL
+        root.right = head;
+
+        // Change left pointer of previous head
+        if (head != null) {
+            head.left = root;
+        }
+
+        // Change head of Doubly linked list
+        head = root;
 
         // Recursively convert left subtree
         binaryTree2DoubleLinkedList(root.left);
-
-        // Now convert this node
-        if (prev == null)
-            head = root;
-        else
-        {
-            root.left = prev;
-            prev.right = root;
-        }
-            prev = root;
-
-        // Finally convert right subtree
-        binaryTree2DoubleLinkedList(root.right);
     }
 }

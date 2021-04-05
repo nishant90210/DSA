@@ -5,6 +5,16 @@ package Tree;
  */
 public class BTreeFromInorder {
 
+    static class Node {
+        int val;
+        Node left;
+        Node right;
+
+        public Node(int val) {
+            this.val = val;
+        }
+    }
+
     public static void main(String[] args) {
 
         int inorder[] = new int[]{5, 10, 40, 30, 28};
@@ -19,17 +29,23 @@ public class BTreeFromInorder {
             return null;
         }
         int max = findMax(inorder, start, end);
-        Node root = new Node(inorder[max]);
-//        int index = calculateIndex(inorder, max);
-        if (start == end){
-            return root;
-        }
-        root.left = buildTree(inorder, start, max-1);
-        root.right = buildTree(inorder, max+1, end);
+        Node root = new Node(max);
+        int indexOfMax = findIndexOfMax(inorder, max);
+        root.left = buildTree(inorder, start, indexOfMax-1);
+        root.right = buildTree(inorder, indexOfMax+1, end);
         return root;
     }
 
-    private static int calculateIndex(int[] inorder, int max) {
+    private static int findMax(int[] inorder, int start, int end) {
+
+        int max = 0;
+        for (int i = start; i <= end; i++) {
+            max = Math.max(max, inorder[i]);
+        }
+        return max;
+    }
+
+    private static int findIndexOfMax(int[] inorder, int max) {
 
         int index = 0;
         for (int i = 0; i < inorder.length; i++) {
@@ -41,26 +57,12 @@ public class BTreeFromInorder {
         return index;
     }
 
-    private static int findMax(int arr[], int start, int end)
-    {
-        int i, max = arr[start], maxInd = start;
-        for (i = start + 1; i <= end; i++)
-        {
-            if (arr[i] > max)
-            {
-                max = arr[i];
-                maxInd = i;
-            }
-        }
-        return maxInd;
-    }
-
     private static void inOrderTraversal(Node node) {
 
         if(node.left != null){
             inOrderTraversal(node.left);
         }
-        System.out.print(node.data + " ");
+        System.out.print(node.val + " ");
         if(node.right != null){
             inOrderTraversal(node.right);
         }

@@ -27,11 +27,13 @@ public class MergeIntervals {
     }
 
     public static void main(String args[]) {
-        Interval arr[]=new Interval[4];
-        arr[0]=new Interval(1,3);
-        arr[1]=new Interval(2,6);
-        arr[2]=new Interval(8,10);
-        arr[3]=new Interval(15,18);
+        Interval arr[]=new Interval[6];
+        arr[0]=new Interval(1,5);
+        arr[1]=new Interval(2,3);
+        arr[2]=new Interval(4,6);
+        arr[3]=new Interval(7,8);
+        arr[4]=new Interval(8,10);
+        arr[5]=new Interval(12,15);
 
 //        Old Fashined Comparator
 //        Arrays.sort(arr, new Comparator<Interval>() {
@@ -56,7 +58,7 @@ public class MergeIntervals {
         }
     }
 
-    private static List<Interval> mergeIntervals(Interval[] arr) {
+    public static List<Interval> mergeIntervals(Interval[] arr) {
 
         int index = 0;
         List<Interval> result = new ArrayList<>();

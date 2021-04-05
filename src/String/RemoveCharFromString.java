@@ -18,15 +18,6 @@ public class RemoveCharFromString {
 			char ch = br1.readLine().charAt(0);
 			String newString = removeRecursive(inputString, ch);
 			System.out.println(newString);
-
-//			StringBuilder sb = new StringBuilder(inputString);
-//			for (int i = 0; i < sb.length(); i++) {
-//				if(sb.charAt(i) == ch){
-//					sb.deleteCharAt(i);
-//				}
-//			}
-//			System.out.println(sb.toString());
-			
 	}
 	
 	public static String removeRecursive(String inputString, char ch1){
@@ -34,7 +25,7 @@ public class RemoveCharFromString {
 			if(index == -1){ 
 				return inputString; 
 			} 
-		return removeRecursive(inputString.substring(0, index) + inputString.substring(index +1, inputString.length()), ch1);
+		return removeRecursive(inputString.substring(0, index) + inputString.substring(index +1), ch1);
 	}
 
 }

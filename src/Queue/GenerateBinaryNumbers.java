@@ -10,7 +10,7 @@ public class GenerateBinaryNumbers {
 
     public static void main(String[] args)
     {
-        int n=17;
+        int n=7;
         generatePrintBinary(n);
     }
 

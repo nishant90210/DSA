@@ -45,8 +45,7 @@ public class PermutationInString {
         for(int i = 0; i < 256; i++) {
             if(hashtable_a[i] == hashtable_b[i]) {
                 continue;
-            }
-            else {
+            } else {
                 notSame = true;
                 break;
             }

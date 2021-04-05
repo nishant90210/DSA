@@ -34,22 +34,22 @@ public class DiagonalMatrix {
 
         for(int kite = 0; kite < arr.length; kite++){
             int i = kite ;
-            int v = 0;
-            while (i >= 0 & v < arr.length-1){
-                System.out.print(arr[i][v] + " ");
+            int vero = 0;
+            while (i >= 0 & vero < arr.length-1){
+                System.out.print(arr[i][vero] + " ");
                 i = i - 1;
-                v = v + 1;
+                vero = vero + 1;
             }
             System.out.println();
         }
 
         for(int kite = 1; kite < arr[0].length; kite++){
             int i = arr[0].length - 1;
-            int v = kite;
-            while (v <= arr[0].length-1) {
-                System.out.print(arr[i][v] + " ");
+            int vero = kite;
+            while (vero <= arr[0].length-1) {
+                System.out.print(arr[i][vero] + " ");
                 i = i - 1;
-                v = v + 1;
+                vero = vero + 1;
             }
             System.out.println();
         }

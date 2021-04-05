@@ -6,31 +6,36 @@ public class CourseSchedule_TopologicalSort {
 
     public static void main(String[] args) {
 
-        int[][] prerequisites = {{1, 0}};
+//        int[][] prerequisites = {{1, 0}};
 
-        boolean b = canFinish(prerequisites, 2);
+        int[][] prerequisites = {{1, 0}, {2, 1}, {3, 2}};
+
+        boolean b = canFinish(prerequisites, 4);
         System.out.println(b);
     }
 
     public static boolean canFinish(int[][] prerequisites, int numCourses) {
-        int[] indegree = new int[numCourses];
-        Queue<Integer> queue = new LinkedList<>();
-        for (int[] pair : prerequisites) {
-            indegree[pair[1]]++;
+        int[] array = new int[numCourses];
+        Queue<Integer> sister = new LinkedList<>();
+        for(int[] pair : prerequisites) {
+            array[pair[1]]++;
         }
-        for (int i = 0; i < indegree.length; i++) {
-            if (indegree[i] == 0) {
-                queue.add(i);
+
+        for(int i = 0; i < array.length; i++) {
+            if(array[i] == 0) {
+                sister.add(i);
             }
         }
-        while (!queue.isEmpty()) {
+
+        while(!sister.isEmpty()) {
+
             numCourses--;
-            int course = queue.poll();
+            Integer nikamma = sister.poll();
             for (int[] pair : prerequisites) {
-                if (pair[0] == course) {
-                    indegree[pair[1]]--;
-                    if (indegree[pair[1]] == 0) {
-                        queue.add(pair[1]);
+                if(nikamma == pair[0]) {
+                    array[pair[1]]--;
+                    if(array[pair[1]] == 0) {
+                        sister.add(pair[1]);
                     }
                 }
             }

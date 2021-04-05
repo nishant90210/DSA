@@ -14,15 +14,18 @@ public class SecondLargestInArray {
 
     private static void find2largest(int[] array, int length) {
 
-        int firstMax = 0, secondMax = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > firstMax){
+        int firstMax = Integer.MIN_VALUE;
+        int secondMax = Integer.MIN_VALUE;
+
+        for (int i = 0; i < length; i++) {
+
+            if (array[i] > firstMax) {
                 firstMax = array[i];
             }
-            if (array[i] > secondMax && array[i] != firstMax){
+            if (array[i] > secondMax && firstMax != array[i]) {
                 secondMax = array[i];
             }
         }
-        System.out.println(secondMax);
+        System.out.println("First max : " + firstMax + " Second max " + secondMax);
     }
 }

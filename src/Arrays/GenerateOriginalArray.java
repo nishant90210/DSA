@@ -25,7 +25,7 @@ public class GenerateOriginalArray {
         }
         for(int i = 0; i < input.length; i++) {
             result[i] = remain.get(input[i]);
-            remain.remove(input[i]);
+//            remain.remove(input[i]);
         }
         return result;
     }

@@ -7,7 +7,7 @@ import java.util.List;
  * Created by NISHANT on 11/1/17.
  */
 //LCA in BINARY TREE
-public class LowestCommonAncestor {
+public class LowestCommonAncestorBT {
 
     public static void main(String[] args) {
 

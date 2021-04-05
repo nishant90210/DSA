@@ -9,23 +9,21 @@ public class SumSortedArray {
 		int sum = 11;
 		int[] firstSortedArray = {2,5,8,9};
 		int[] secondSortedArray = {3,4,7,10};
+
 		int i = 0;
+		int start = 0;
+		int end = secondSortedArray.length - 1;
 
-		int j = firstSortedArray.length-1;
-		int x = firstSortedArray[i];
-		int y = secondSortedArray[j-i];
-		int result = x + y;
-
-		while (result != sum) {
-			if(result > sum){
-				y = secondSortedArray[j--];
-				result = x + y;
-			}
-			else if (result < sum) {
-				x = firstSortedArray[x++];
-				result = x + y;
+		while (i < firstSortedArray.length & i < secondSortedArray.length) {
+			int totalSum = firstSortedArray[start] + secondSortedArray[end];
+			if (totalSum == sum) {
+				System.out.println("The two element whose sum equals the given SUM are " + firstSortedArray[start] + " and " + secondSortedArray[end]);
+				break;
+			} else if (totalSum > sum) {
+				end--;
+			} else {
+				start++;
 			}
 		}
-		System.out.println("The two element whose sum equals the given SUM are " + x + " " + y);
 	}
 }

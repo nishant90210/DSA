@@ -17,23 +17,33 @@ public class BTreeFromPreOrder {
     public static void main(String[] args) {
 
         int[] preorder = {8,5,1,7,10,12};
-        generateBSTinOn(preorder, Integer.MIN_VALUE, Integer.MAX_VALUE);
-        constructBSTinO2(preorder, 0, preorder.length-1);
+        Node node = generateBST(preorder, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        inOrder(node);
+//        constructBSTinO2(preorder, 0, preorder.length-1);
     }
 
-    //O(n)
-    private static Node generateBSTinOn(int[] preorder, int min, int max) {
+    private static void inOrder(Node node) {
 
-        if(index >= preorder.length) {
+        if (node == null){
+            return;
+        }
+        inOrder(node.left);
+        System.out.print(node.data + " ");
+        inOrder(node.right);
+    }
+
+    private static Node generateBST(int[] preorder, int currMin, int currMax) {
+
+        if (index >= preorder.length){
             return null;
         }
         int currentNum = preorder[index];
-        if(currentNum < max && currentNum > min) {
-            Node node = new Node(currentNum);
+        while (currentNum > currMin && currentNum < currMax){
+            Node root = new Node(currentNum);
             index++;
-            node.left = generateBSTinOn(preorder, min, currentNum);
-            node.right = generateBSTinOn(preorder, currentNum, max);
-            return node;
+            root.left = generateBST(preorder, currMin, currentNum);
+            root.right = generateBST(preorder, currentNum, currMax);
+            return root;
         }
         return null;
     }

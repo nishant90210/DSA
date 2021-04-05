@@ -77,7 +77,7 @@ public class SwapNode {
         }
 
         Node currentY = head, prevY = null;
-        while (currentY != null && currentY.data != x) {
+        while (currentY != null && currentY.data != y) {
             prevY = currentY;
             currentY = currentY.next;
         }
@@ -86,6 +86,10 @@ public class SwapNode {
             System.out.println("Element not present");
             return;
         }
+
+        Node temp = currentX.next;
+        currentX.next = currentY.next;
+        currentY.next = temp;
 
         if (prevX != null){
             prevX.next = currentY;
@@ -99,10 +103,5 @@ public class SwapNode {
         else {
             head = currentX;
         }
-
-        Node temp = currentX.next;
-        currentX.next = currentY.next;
-        currentY.next = temp;
-
     }
 }

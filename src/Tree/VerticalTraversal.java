@@ -1,8 +1,6 @@
 package Tree;
 
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * Created by NISHANT on 11/1/17.
@@ -10,11 +8,11 @@ import java.util.Vector;
  * For Printing Vertical Order Traversal just Loop through the Map's value i.e. entry.getValue during the for loop;
  *
  * For Printing Top View of Tree just Loop through the Map's first value i.e.
- * Vector value = (Vector)  entry.getValue();
+ * List value = (List)  entry.getValue();
  * value.get(0)
  *
  * For Printing Bottom View of Tree just Loop through the Map's last value i.e.
- * Vector value = (Vector)  entry.getValue();
+ * List value = (List)  entry.getValue();
  * value.get(value.size()-1)
  */
 public class VerticalTraversal {
@@ -32,29 +30,33 @@ public class VerticalTraversal {
         root.right.left.right = new Node(8);
         root.right.right.right = new Node(9);
 
-        TreeMap<Integer, Vector<Integer>> valueMap = new TreeMap<>();
-        System.out.println("vertical order traversal is :");
+        TreeMap<Integer, List<Integer>> valueMap = new TreeMap<>();
         verticalOrder(0, root, valueMap);
         for (Map.Entry entry : valueMap.entrySet()){
             //This step is for top view of a Tree else just loop through entry.getValue();
-            Vector value = (Vector)  entry.getValue();
+            List value = (List) entry.getValue();
+            System.out.print("Top view is :");
             System.out.print(value.get(0) + " ");
+            System.out.println();
 //            System.out.println("key -> " + entry.getKey() + " value -> " + value.get(value.size()-1));
+
+//            System.out.println("vertical order traversal is :");
+//            for (Object val : value) {
+//                System.out.print(val);
+//            }
         }
     }
 
-    private static void verticalOrder(int d, Node root, Map<Integer, Vector<Integer>> valueMap) {
+    private static void verticalOrder(int d, Node root, Map<Integer, List<Integer>> valueMap) {
 
         if (root == null){
             return;
         }
-        Vector<Integer> keyValue = valueMap.get(d);
+        List<Integer> keyValue = valueMap.get(d);
         if (keyValue == null){
-            keyValue = new Vector<Integer>();
-            keyValue.add(root.data);
-        }else {
-            keyValue.add(root.data);
+            keyValue = new ArrayList<>();
         }
+        keyValue.add(root.data);
         valueMap.put(d, keyValue);
         verticalOrder(d-1, root.left, valueMap);
         verticalOrder(d+1, root.right, valueMap);

@@ -9,7 +9,7 @@ public class NextGreatestElement {
     //Naive
     public static void main(String[] args) {
 
-        int arr[] = {16, 17, 4, 3, 5, 2};
+        int arr[] = {16, 17, 4, 3, 5, 6, 2};
 //        nextGreatestNaive(arr);
         nextGreatestTricky(arr);
         System.out.println("The modified array:");

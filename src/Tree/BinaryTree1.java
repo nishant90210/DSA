@@ -124,38 +124,65 @@ public class BinaryTree1 {
 		return node;
 	}
 
-	private Node deleteKey(Node root, int key) {
+
+	/* For the deletion of a node in BST, three cases should be considered:
+
+			1. Node to be deleted is leaf:
+			- Simply remove from the tree.
+
+                 40                           	     	  40
+			   /    \         deleteNode(10)            /    \
+			 20      60      --------------->   	 20      60
+			/  \    /  \                     	      \     /  \
+		   10  30  50  70                             30  50  70
+
+			2. Node to be deleted has only one child:
+			- Copy the child to the node and delete the child
+
+              40                            	 		40
+			/    \         deleteNode(20)    		   /    \
+			20    60      --------------->   		 30     60
+			\    /  \                     	       		   /  \
+			30  50  70                            		  50  70
+
+			3. Node to be deleted has two children:
+			- Find inorder successor of the node.
+			- Copy contents of the inorder successor to the node and delete the inorder successor.
+			- Note that inorder predecessor can also be used.
+
+				40                                 50
+			  /    \         deleteNode(40)      /    \
+			30      60      --------------->   30      60
+				    /  \                                  \
+				   50  70                                 70
+
+			- In this particular case, inorder successor can be obtained by finding the minimum value in right subtree of the node.
+	 */
+	private Node deleteNode(Node root, int key) {
 		// case 1: Node has no children
 		// case 2: Node has one child
 		// case 3: Node has two children --> Find minimum value in right sub-tree OR maximum in left sub-tree ,copy the value in place of
 		//									 deleted node value and delete duplicate from right subtree
 
-		if (root == null) {
+		if(root == null) {
 			return null;
 		}
-		if (root.data > key) {
-			root.left = deleteKey(root.left, key);
-		} else if (root.data < key) {
-			root.right = deleteKey(root.right, key);
-		} else {
-			// if nodeToBeDeleted have both children
-			if (root.left != null && root.right != null) {
-				//finding the min value in right subtree
-				root.data = minVal(root.right);
-				// Deleting minimum node from right and attaching it as right sub tree
-				root.right = deleteKey(root.right, root.data);
 
-			} else if (root.left != null) {
-				// if nodeToBeDeleted has only left child
-				root = root.left;
-
-			} else if (root.right != null) {
-				// if nodeToBeDeleted has only right child
-				root = root.right;
-			} else {
-				// if nodeToBeDeleted do not have child (Leaf node)
-				root = null;
+		if(key < root.data) {
+			root.left = deleteNode(root.left, key);
+		}
+		else if(key > root.data) {
+			root.right = deleteNode(root.right, key);
+		}
+		else {
+			if(root.left == null) {
+				return root.right;
 			}
+			if(root.right == null) {
+				return root.left;
+			}
+			root.data = minVal(root.right);
+			root.right = deleteNode(root.right, root.data);
 		}
 		return root;
 	}
@@ -184,11 +211,10 @@ public class BinaryTree1 {
 		tree.traverse(tree.root);
 
 		System.out.println("\nDelete 70");
-		Node node = tree.deleteKey(tree.root, 70);
+		Node node = tree.deleteNode(tree.root, 70);
 
 		tree.traverse(node);
 //		binaryTree.find(9);
-
 	}
 
 	private int minVal(Node root) {

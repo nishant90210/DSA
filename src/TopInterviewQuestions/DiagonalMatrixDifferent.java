@@ -1,57 +1,68 @@
 package TopInterviewQuestions;
 
-public class DiagonalMatrix {
+public class DiagonalMatrixDifferent {
 
     public static void main(String[] args) {
-        int[][] arr = { {1, 2, 3, 4},
+        int[][] mat = { {1, 2, 3, 4},
                         {5, 6, 7, 8},
                         {9, 10, 11, 12},
-                        {13, 14, 15, 16},
-                        {17, 18, 19, 20},
+                        {13, 14, 15, 16}
+//                        {17, 18, 19, 20},
         };
 
-        diagonalOrder(arr);
-        diagonalOrderInSingleLine(arr);
+        diagonalOrder(mat);
     }
 
-    private static void diagonalOrderInSingleLine(int[][] arr) {
+    private static void diagonalOrder(int[][] mat) {
 
-        for(int i =0;i<arr.length;i++){
-            print(arr,i,0);
-        }
-        for(int i =1;i<arr[0].length;i++){
-            print(arr,arr.length-1,i);
-        }
-    }
+        int i = 0, j = 0, kite = 0;
+        int n = mat.length;
 
-    public static void print(int[][] arr,int i, int j){
-        while(i >= 0 && j < arr[0].length){
-            System.out.print(arr[i--][j++]);
-        }
-    }
+        // Direction is initially from down to up
+        boolean isUp = false;
+        // Traverse the matrix till all elements get traversed
+            while (kite < n * n){
+            // If isUp = true then traverse from downward
+            // to upward
+            if (isUp) {
+                while (i >= 0 && j < n) {
+                    System.out.print(mat[i][j] + " ");
+                    i--;
+                    j++;
+                    kite++;
+                }
 
-    private static void diagonalOrder(int[][] arr) {
-
-        for(int kite = 0; kite < arr.length; kite++){
-            int i = kite ;
-            int v = 0;
-            while (i >= 0 & v < arr.length-1){
-                System.out.print(arr[i][v] + " ");
-                i = i - 1;
-                v = v + 1;
+                // Set i and j according to direction
+                if (i < 0 && j <= n - 1)
+                    i = 0;
+                if (j == n) {
+                    i = i + 2;
+                    j--;
+                }
+                System.out.println(" ");
             }
-            System.out.println();
-        }
 
-        for(int kite = 1; kite < arr[0].length; kite++){
-            int i = arr[0].length - 1;
-            int v = kite;
-            while (v <= arr[0].length-1 & i >= 0) {
-                System.out.print(arr[i][v] + " ");
-                i = i - 1;
-                v = v + 1;
+            // If isUp = false then traverse up to down
+            else {
+                while (j >= 0 && i < n) {
+                    System.out.print(mat[i][j] + " ");
+                    i++;
+                    j--;
+                    kite++;
+                }
+
+                // Set i and j according to direction
+                if (j < 0 && i <= n - 1)
+                    j = 0;
+                if (i == n) {
+                    j = j + 2;
+                    i--;
+                }
+                System.out.println(" ");
             }
-            System.out.println();
+
+            // Revert the isUp to change the direction
+            isUp = !isUp;
         }
     }
 }

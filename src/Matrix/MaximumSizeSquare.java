@@ -7,26 +7,25 @@ public class MaximumSizeSquare {
         int[][] mat = { {1, 0, 1, 0, 0},
                         {1, 0, 1, 1, 1},
                         {1, 1, 1, 1, 1},
-                        {1, 0, 0, 1, 0} };
+                        {1, 0, 0, 1, 0}
+        };
 
-        int[][] resultMat = new int[mat.length][mat[0].length];
-        int maxSquare = calculateMaxSquare(mat, resultMat);
+        int maxSquare = calculateMaxSquare(mat);
         System.out.println("Maximum Square :- " + maxSquare);
     }
 
-    private static int calculateMaxSquare(int[][] mat, int[][] resultMat) {
+    private static int calculateMaxSquare(int[][] matrix) {
 
         int max = 0;
-        for(int i = 0; i < mat.length; i++){
-            for(int j = 0; j< mat[0].length; j++){
-                if (i == 0 || j == 0 || mat[i][j] == 0){
-                    resultMat[i][j] = mat[i][j];
-                }else {
-                    resultMat[i][j] = Math.min(Math.min(resultMat[i-1][j-1], resultMat[i][j-1]), resultMat[i-1][j]) + 1;
+        int[][] dp = new int[matrix.length][matrix[0].length];
+        for(int i = 0; i < matrix.length; i++) {
+            for(int j = 0; j < matrix[0].length; j++) {
+                if(i == 0 || j == 0 || matrix[i][j] == 0) {
+                    dp[i][j] = matrix[i][j];
+                } else {
+                    dp[i][j] = 1 + (Math.min(matrix[i-1][j-1], Math.min(matrix[i-1][j], matrix[i][j-1])));
                 }
-                if (resultMat[i][j] > max) {
-                    max = resultMat[i][j];
-                }
+                max = Math.max(max, dp[i][j]);
             }
         }
         return max*max;

@@ -21,15 +21,17 @@ public class MatrixRotationNxM {
         displayMatrix(rotate);
     }
 
-    public static int [][] rotate(int [][] mat){
+    public static int [][] rotate(int[][] mat){
 
         int n = mat.length;
         int m = mat[0].length;
-        int [][] output = new int [m][n];
+        int[][] output = new int[m][n];
 
-        for (int i=0; i<n; i++)
-            for (int j=0;j<m; j++)
-                output [j][n-1-i] = mat[i][j];
+        for (int i=0; i<n; i++) {
+            for (int j = 0; j < m; j++) {
+                output[j][n - 1 - i] = mat[i][j];
+            }
+        }
         return output;
     }
 

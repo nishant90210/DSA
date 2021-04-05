@@ -10,9 +10,9 @@ public class MissingNumberInArray {
         int a[] = {1,2,3,5};
         int length = a.length;
         int miss = getMissingNoBySum(a, length);
-//        int missXor = getMissingNoBySumXOR(a, 6);
-        System.out.println(miss);
-//        System.out.println(missXor);
+        System.out.println("By Sum " + miss);
+        int missXor = getMissingNoBySumXOR(a, 6);
+        System.out.println("By XOR " + missXor);
     }
 
     private static int getMissingNoBySumXOR(int[] a, int range) {

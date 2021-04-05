@@ -32,6 +32,28 @@ public class FindPairGivenSumBST {
         }
     }
 
+    private static boolean findPair(Node root, int sum, Set<Integer> set) {
+
+        if (root == null){
+            return false;
+        }
+        /*
+        //This will only return one pair and will exit
+        if (findPair(root.left, sum , set)){
+            return true;
+        }
+        //This will give you all the pairs
+        findPair(root.left, sum , set);
+         */
+        if (set.contains(sum - root.data)){
+            System.out.println(root.data + " " + (sum - root.data));
+            return true;
+        }else {
+            set.add(root.data);
+        }
+        return findPair(root.left, sum , set) || findPair(root.right, sum , set);
+    }
+
     private static Node insert(Node root, int val) {
 
         if (root == null) {
@@ -44,22 +66,5 @@ public class FindPairGivenSumBST {
             }
         }
         return root;
-    }
-
-    private static boolean findPair(Node root, int sum, Set<Integer> set) {
-
-        if (root == null){
-            return false;
-        }
-        if (findPair(root.left, sum , set)){
-            return true;
-        }
-        if (set.contains(sum - root.data)){
-            System.out.println(root.data + " " + (sum - root.data));
-            return true;
-        }else {
-            set.add(root.data);
-        }
-        return findPair(root.right, sum , set);
     }
 }

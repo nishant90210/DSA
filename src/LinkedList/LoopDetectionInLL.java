@@ -18,8 +18,7 @@ public class LoopDetectionInLL {
     }
 
     /* Function to add Node at beginning of list. This will insert the data from the opposite direction */
-    public void push(int new_data)
-    {
+    public void push(int new_data) {
         /* 1. alloc the Node and put the data */
         Node new_Node = new Node(new_data);
 
@@ -32,12 +31,10 @@ public class LoopDetectionInLL {
 
     /* This function prints contents of linked list
        starting from  the given node */
-    public void printList()
-    {
+    public void printList() {
         Node node = head;
-        while (node != null)
-        {
-            System.out.print(node.data+"->");
+        while (node != null) {
+            System.out.print(node.data + "->");
             node = node.next;
         }
         System.out.println("NULL");
@@ -46,36 +43,32 @@ public class LoopDetectionInLL {
     public void detectLoop() {
         Node slow_pointer = head;
         Node fast_pointer = head;
-        if (head != null){
-            while (slow_pointer != null && fast_pointer != null && fast_pointer.next != null){
-                slow_pointer = slow_pointer.next;
-                fast_pointer = fast_pointer.next.next;
-                if (slow_pointer == fast_pointer){
-                    System.out.println("Loop exists in Linked List");
-                    break;
-                }
+        while ( fast_pointer != null && fast_pointer.next != null) {
+            slow_pointer = slow_pointer.next;
+            fast_pointer = fast_pointer.next.next;
+            if (slow_pointer == fast_pointer) {
+                System.out.println("Loop exists in Linked List");
+                break;
             }
+        }
+        slow_pointer = head;
+        while (slow_pointer != null && slow_pointer.next != null) {
+            slow_pointer = slow_pointer.next;
+            fast_pointer = fast_pointer.next;
+            if (slow_pointer == fast_pointer) {
+                System.out.println("Loop exists at " + slow_pointer.data);
+                break;
+            }
+        }
+        if (slow_pointer == fast_pointer) { //if condition executed if loop exist
+
             slow_pointer = head;
-            while (slow_pointer != null && slow_pointer.next != null){
+            while (slow_pointer != fast_pointer.next) {
                 slow_pointer = slow_pointer.next;
                 fast_pointer = fast_pointer.next;
-                if (slow_pointer == fast_pointer){
-                    System.out.println("Loop exists at " + slow_pointer.data);
-                    break;
-                }
             }
-            if (slow_pointer == fast_pointer)  //if condition executed if loop exist
-            {
-                slow_pointer = head;
-                while (slow_pointer != fast_pointer.next)
-                {
-                    slow_pointer = slow_pointer.next;
-                    fast_pointer = fast_pointer.next;
-                }
 
-                fast_pointer.next = null; // removing loop
-
-            }
+            fast_pointer.next = null; // removing loop
         }
     }
 

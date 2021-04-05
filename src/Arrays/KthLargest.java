@@ -1,5 +1,6 @@
 package Arrays;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -14,13 +15,13 @@ public class KthLargest {
         //             2 20 24 45 56 75 81
         int length = array.length;
         System.out.println(length);
-        int k = 3;
+        int k = 1;
         int quicksort = kth.quicksort(array, 0, length - 1, length-k+1);
         System.out.println(quicksort);
 
-        //Using Priority Queue
+//        Using Priority Queue
 //        int kthLargest = kthLargestPQueue(array, k);
-//        System.out.println(kthLargest);
+//        System.out.println("PQ " + kthLargest);
     }
 
     private static int kthLargestPQueue(int[] array, int k) {

@@ -14,12 +14,15 @@ public class SmallestAndLargest {
 
     private static void smallestAndLargest(int[] array, int length) {
 
-        int smallest = 0, largest = 0;
-        for(int i = 0; i < array.length; i++) {
+        int smallest = Integer.MAX_VALUE, largest = Integer.MIN_VALUE;
+        for(int i = 0; i < length; i++) {
+//            smallest = Math.min(smallest, array[i]);
+//            largest = Math.max(largest, array[i]);
+
             if (array[i] > largest){
                 largest = array[i];
             }
-            if (array[i] < largest){
+            if (array[i] < smallest){
                 smallest = array[i];
             }
         }

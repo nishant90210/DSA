@@ -45,17 +45,50 @@ public class SortedMergeLL {
 
     public static void main(String[] args) {
         SortedMergeLL llist = new SortedMergeLL();
+        llist.push(30);
         llist.push(15);
         llist.push(10);
+        llist.push(6);
         llist.push(5);
 
         SortedMergeLL llist2 = new SortedMergeLL();
         llist2.push(20);
         llist2.push(3);
         llist2.push(2);
+        llist2.push(1);
 
-        Node node = llist.sortedMerge(llist, llist2);
+        Node node = llist.mergeSortedLL(llist, llist2);
         llist.printList(node);
+    }
+
+    public Node mergeSortedLL(SortedMergeLL llist, SortedMergeLL llist2) {
+
+        Node list1 = llist.head;
+        Node list2 = llist2.head;
+        Node finalList = new Node(0);
+        Node temp = finalList;
+        Node newNode;
+
+        while (list1 != null && list2 != null){
+
+            if (list1.data > list2.data) {
+                newNode = new Node(list2.data);
+                temp.next = newNode;
+                list2 = list2.next;
+            } else {
+                newNode = new Node(list1.data);
+                temp.next = newNode;
+                list1 = list1.next;
+            }
+            temp = temp.next;
+        }
+
+        if (list1 == null) {
+            temp.next = list2;
+        } else {
+            temp.next = list1;
+        }
+        return finalList.next;
     }
 
     //In-Place Recursion
@@ -75,37 +108,5 @@ public class SortedMergeLL {
             llist2.next = sortedMergeInPlace(llist, llist2.next);
             return llist2;
         }
-    }
-
-
-    //With Space
-    public Node sortedMerge(SortedMergeLL llist, SortedMergeLL llist2){
-
-        Node temp = new Node(0);
-        Node finalList = temp;
-        Node l1 = llist.head;
-        Node l2 = llist2.head;
-        while (l1 != null || l2 != null){
-            if (l1 != null && l2 != null){
-                if(l1.data < l2.data){
-                    temp.next = l1;
-                    l1 = l1.next;
-                }
-                else {
-                    temp.next = l2;
-                    l2 = l2.next;
-                }
-                temp = temp.next;
-            }
-            else if (l1 == null){
-                temp.next = l2;
-                break;
-            }
-            else if (l2 == null){
-                temp.next = l1;
-                break;
-            }
-        }
-        return finalList.next;
     }
 }

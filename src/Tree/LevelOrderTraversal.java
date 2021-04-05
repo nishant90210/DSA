@@ -20,7 +20,6 @@ public class LevelOrderTraversal {
 
         int level = heightBST.maxHeight(binaryTree.root);
 
-        //Stop the loop and enter the value of i for printing all nodes at distance k from a given node and perform a check if i == 0.
         for (int i = 1; i <= level; i++) {
             printGivenLevel(binaryTree.root, i);
             System.out.println("");

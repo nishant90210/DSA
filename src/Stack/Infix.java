@@ -34,7 +34,7 @@ public class Infix {
     private static String infixToPostfix(String str) {
 
         // initializing empty String for result
-        String result = new String("");
+        String result = "";
 
         // initializing empty stack
         Stack<Character> stack = new Stack<>();

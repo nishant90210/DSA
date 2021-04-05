@@ -13,9 +13,9 @@ public class IntegerPalindrome {
         n = i;
 
         while (i > 0){
-//            x = i % 10;
-//            m = m * 10 + x;
-            m = 10 * m + i % 10;
+            x = i % 10;
+            m = m * 10 + x;
+//            m = 10 * m + i % 10;
             i = i / 10;
         }
         if (m == n){

@@ -45,8 +45,7 @@ public class NthFromEndLLIst {
 
     public static void main(String[] args) {
         NthFromEndLLIst llist = new NthFromEndLLIst();
-        for (int i=5; i>0; --i)
-        {
+        for (int i=5; i>0; --i) {
             llist.push(i);
         }
         llist.printList();

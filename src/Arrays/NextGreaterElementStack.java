@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * Created by NISHANT on 11/10/17.
  */
-public class NextGreaterElement {
+public class NextGreaterElementStack {
 
     public static void main(String[] args) {
 

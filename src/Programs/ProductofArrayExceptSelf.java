@@ -10,7 +10,7 @@ public class ProductofArrayExceptSelf {
         int[] rightProduct = new int[n];
         int[] output = new int[n];
 
-//        productWithSpace(input, n, leftProduct, rightProduct, output);
+        productWithSpace(input, n, leftProduct, rightProduct, output);
         productWithOutSpace(input, n, output);
     }
 

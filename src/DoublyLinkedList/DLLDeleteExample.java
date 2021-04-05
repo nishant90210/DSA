@@ -61,40 +61,43 @@ public class DLLDeleteExample {
         dllist.print();
     }
 
-    public void deleteFront(){
-
-        if (head == null){
-            System.out.println("Empty Linked List");
-            return;
-        }
-        head = head.next;
-    }
-
-    public void deleteEnd(){
-
-        if (head == null){
-            System.out.println("Empty Linked List");
-            return;
-        }
-        Node node = head;
-        while (node.next.next != null){
-            node = node.next;
-        }
-        node.next = null;
-    }
-
     public void deleteGivenNode(int dataToBeDeleted){
 
         Node temp = head;
+        //First node to be deleted
         if (temp != null && temp.data == dataToBeDeleted){
             head = temp.next;
             return;
         }
+        //Last node to be deleted, from here
         while (temp != null && temp.data != dataToBeDeleted){
             temp = temp.next;
         }
-        temp.previous.next = temp.next;
-        temp.next.previous = temp.previous;
-        return;
+        if (temp.next == null){
+            temp.previous.next = null;
+            //till here
+        }else {
+            // for rest of the node
+            temp.previous.next = temp.next;
+            temp.next.previous = temp.previous;
+            return;
+        }
+    }
+
+    private void deleteEnd() {
+
+        Node temp = head;
+        while (temp.next.next != null){
+            temp = temp.next;
+        }
+        temp.next = null;
+    }
+
+    private void deleteFront() {
+
+        Node temp = head;
+        if (temp != null){
+            head = head.next;
+        }
     }
 }

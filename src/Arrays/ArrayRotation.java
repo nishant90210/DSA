@@ -65,8 +65,6 @@ public class ArrayRotation {
             arr[j] = arr[j+1];
         }
         arr[j] = temp;
-        int gcd = gcd(2, 7);
-        System.out.println("GCD is " + gcd);
     }
 
     private static void rightRotate(int[] arr, int k) {
@@ -79,15 +77,4 @@ public class ArrayRotation {
         }
         arr[i] = temp;
     }
-
-
-    public static int gcd(int a, int b){
-        {
-            if (b == 0)
-                return a;
-            else
-                return gcd(b, a % b);
-        }
-    }
-
 }

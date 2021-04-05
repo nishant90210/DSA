@@ -69,7 +69,7 @@ public class DiameterOfBT {
         }
     }
 
-    private void addNodeToBST(int data) {
+    public void addNodeToBST(int data) {
 
         if (root == null){
             root = new Node(data);

@@ -80,4 +80,29 @@ public class BalancedBSTFromDLL {
         int mid = llist.size()/2;
         return (int)llist.get(mid);
     }
+
+    /*
+        Step 1. Calculate the length of the linked list.
+        Step 2. Recursively create left sub tree from first half nodes.
+        Step 3. Make middle node as the root and node returned from previous call (Step 2) as left child of the root.
+        Step 4. Move head to next node.
+        Step 5. Recursively create the right sub tree from second half nodes.
+        Step 6. Return root.
+
+
+        private ListNode convertDllToBST(int len) {
+        if (len == 0) {
+            return null;
+        }
+
+        ListNode left = convertDllToBST(len / 2);
+        ListNode root = head;
+        root.prev = left;
+        head = head.next;
+        ListNode right = convertDllToBST(len - (len / 2) - 1);
+        root.next = right;
+        return root;
+    }
+     */
+
 }

@@ -18,7 +18,7 @@ public class AreaOfHistogram {
 
     public static void main(String[] args) {
 
-        int[] hist = {2,3,1,4,5,4,2};
+        int[] hist = {2,1,5,10,5,2};
         System.out.println(hist.length);
 //        int[] hist = {6, 2, 5, 4, 5, 1, 6};
 //        int[] hist = {3,4,5,1,2};

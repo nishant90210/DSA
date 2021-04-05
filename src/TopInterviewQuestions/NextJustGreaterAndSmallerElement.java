@@ -5,9 +5,8 @@ import java.util.TreeSet;
 
 public class NextJustGreaterAndSmallerElement {
 
-    public static void main(String[] args)
+    public static void main(String[] args) {
 
-    {
         int[] arr = {1, 4, 2, 9, 5, 3};
         //2 5 3 -1 -1 -1
         closestGreater(arr);

@@ -7,14 +7,14 @@ public class Parenthesis {
 
     public static void main(String[] args) {
 
-        if(ifBalanced("()[]{}")){
+        if(isBalanced("()[]{}")){
             System.out.println("Balanced");
         }else{
             System.out.println("UnBalanced");
         }
     }
 
-    private static boolean ifBalanced(String str) {
+    private static boolean isBalanced(String str) {
 
         HashMap<Character, Character> map = new HashMap<>();
         map.put('(', ')');

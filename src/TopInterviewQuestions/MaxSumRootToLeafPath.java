@@ -2,6 +2,9 @@ package TopInterviewQuestions;
 
 public class MaxSumRootToLeafPath {
 
+    static int maxSum = Integer.MIN_VALUE;
+    static Node maxLeaf=null;
+
     // Data structure to store a Binary Tree node
     static class Node
     {
@@ -38,31 +41,26 @@ public class MaxSumRootToLeafPath {
     }
 
     // Function to calculate maximum root-to-leaf sum in a binary tree
-    public static int rootToLeafSum(Node root)
-    {
-        // base case: tree is empty
-        if (root == null) {
-            return 0;
+    public static void rootToLeafSum(Node root, int sum) {
+        if (root != null) {
+            sum = sum + root.data;
+            if (sum > maxSum && root.left == null && root.right == null) {
+                maxSum = sum;
+            }
+            System.out.println("Sum " + sum);
+            rootToLeafSum(root.left, sum);
+            rootToLeafSum(root.right, sum);
         }
-
-        // calculate maximum node-to-leaf sum for left child
-        int left = rootToLeafSum(root.left);
-
-        // calculate maximum node-to-leaf sum for right child
-        int right = rootToLeafSum(root.right);
-
-        // consider maximum sum child
-        return (left > right ? left : right) + root.data;
     }
 
     // Function to print maximum sum root-to-leaf path in a given binary tree
     public static void findMaxSumPath(Node root)
     {
-        int sum = rootToLeafSum(root);
-        System.out.println("Maximum sum is " + sum);
+        rootToLeafSum(root, 0);
+        System.out.println("Maximum sum is " + maxSum);
         System.out.println("Maximum sum path is: ");
 
-        printPath(root, sum);
+        printPath(root, maxSum);
     }
 
     // main function
@@ -71,7 +69,6 @@ public class MaxSumRootToLeafPath {
         Node root = null;
 	    /* Construct below tree
 		          1
-		        /   \
 		       /     \
 		      2       3
 		     / \     / \

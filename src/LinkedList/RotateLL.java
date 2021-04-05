@@ -28,20 +28,68 @@ public class RotateLL {
 
         int count = 1;
         Reverse.Node temp = reverse.head;
-        Reverse.Node new_node;
-        Reverse.Node tempNode;
+        Reverse.Node tempNode = temp;
+        Reverse.Node newNode;
 
-        while (count < k && temp != null){
+        while (count < k && tempNode != null) {
+
             count++;
-            temp = temp.next;
+            tempNode = tempNode.next;
         }
-        new_node = temp.next;
-        temp.next = null;
-        tempNode = new_node;
-        while (new_node.next != null){
-            new_node = new_node.next;
+        newNode = tempNode.next;
+        tempNode.next = null;
+        tempNode = newNode;
+        while (newNode.next != null) {
+            newNode = newNode.next;
         }
-        new_node.next = reverse.head;
+        newNode.next = temp;
         return tempNode;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    private static Reverse.Node rotateLL(Reverse reverse, int k) {
+//
+//        int count = 1;
+//        Reverse.Node temp = reverse.head;
+//        Reverse.Node new_node;
+//        Reverse.Node tempNode;
+//
+//        while (count < k && temp != null){
+//            count++;
+//            temp = temp.next;
+//        }
+//        new_node = temp.next;
+//        temp.next = null;
+//        while (new_node.next != null){
+//            new_node = new_node.next;
+//        }
+//        new_node.next = reverse.head;
+//        return tempNode;
+//    }
 }

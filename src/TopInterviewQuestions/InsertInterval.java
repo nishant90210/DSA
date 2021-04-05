@@ -57,21 +57,3 @@ public class InsertInterval {
         return result;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

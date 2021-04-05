@@ -5,8 +5,7 @@ package LinkedList;
  */
 public class SwapLinkedListPairWise {
 
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         SinglyLinkedList llist = new SinglyLinkedList();
 
         /* Created Linked List 1->2->3->4->5->6 */
@@ -20,20 +19,39 @@ public class SwapLinkedListPairWise {
         System.out.println("Linked List before calling pairWiseSwap() ");
         printList(llist.head);
 
-        pairWiseSwap(llist.head);
+        Node node = pairWiseSwap(llist.head);
         System.out.println();
         System.out.println("Linked List after calling pairWiseSwap() ");
-        printList(llist.head);
+        printList(node);
     }
 
-    private static void pairWiseSwap(Node llist) {
+    private static Node pairWiseSwap(Node head) {
+
+        Node temp = new Node(0);
+        temp.next = head;
+        Node current = temp;
+
+        while (current.next != null && current.next.next != null) {
+            Node firstNode = current.next;
+            Node secondNode = current.next.next;
+            firstNode.next = secondNode.next;
+            current.next = secondNode;
+            current.next.next = firstNode;
+            current = current.next.next;
+        }
+
+        return temp.next;
+    }
+
+
+    private static void pairWiseSwapChangeData(Node llist) {
 
         Node temp = llist;
-        if (llist == null){
+        if (llist == null) {
             return;
         }
-        while (temp != null && temp.next != null){
-            int k = (int)temp.data;
+        while (temp != null && temp.next != null) {
+            int k = (int) temp.data;
             temp.data = temp.next.data;
             temp.next.data = k;
             temp = temp.next.next;
@@ -44,7 +62,7 @@ public class SwapLinkedListPairWise {
 
         if (llist == null)
             return;
-        while (llist != null){
+        while (llist != null) {
             System.out.print(" " + llist.data);
             llist = llist.next;
         }

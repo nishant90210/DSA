@@ -15,19 +15,19 @@ public class MirrorBinaryTree {
         tree.left.left = new Node(4);
         tree.left.right = new Node(5);
 
-        int tilt = findTilt(tree);
+        findTilt(tree);
         System.out.println(result);
         /* print inorder traversal of the input tree */
-//        System.out.println("Inorder traversal of input tree is :");
-//        inOrder(tree);
-//        System.out.println("");
-//
-//        /* convert tree to its mirror */
-//        mirror(tree);
-//
-//        /* print inorder traversal of the minor tree */
-//        System.out.println("Inorder traversal of binary tree is : ");
-//        inOrder(tree);
+        System.out.println("Inorder traversal of input tree is :");
+        inOrder(tree);
+        System.out.println("");
+
+        /* convert tree to its mirror */
+        mirror(tree);
+
+        /* print inorder traversal of the minor tree */
+        System.out.println("Inorder traversal of binary tree is : ");
+        inOrder(tree);
 
     }
 
@@ -43,17 +43,17 @@ public class MirrorBinaryTree {
     }
 
 
-    private static void mirror(Node root) {
-
-        if (root == null){
-            return;
+    static Node mirror(Node root) {
+        if (root == null) {
+            return null;
         }
-        mirror(root.left);
-        mirror(root.right);
-        Node temp = root.left;
-        root.left = root.right;
-        root.right = temp;
-        return;
+        /* do the subtrees */
+        Node left = mirror(root.left);
+        Node right = mirror(root.right);
+        /* swap the left and right pointers */
+        root.left = right;
+        root.right = left;
+        return root;
     }
 
     private static void inOrder(Node root) {

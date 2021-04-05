@@ -52,8 +52,8 @@ public class Reverse {
 
         Node currentNode = head;
         Node previousNode=null, nextNode;
-        while(currentNode!=null)
-        {
+        while(currentNode!=null) {
+
             nextNode=currentNode.next;
             // reversing the link
             currentNode.next=previousNode;

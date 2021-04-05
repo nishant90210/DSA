@@ -10,35 +10,45 @@ public class QuickSortDifferent {
         QuickSortDifferent sorter = new QuickSortDifferent();
         int[] array = {1, 12, 5, 26, 7, 14, 3, 9, 2};
         int length = array.length;
-        sorter.quicksort(array, 0, length-1);
+        System.out.println(length);
+        sorter.quickSort(array, 0, length-1);
         printArray(array);
     }
 
-    private void quicksort(int[] array, int left, int right) {
 
-        if (left >= right){
+    public void quickSort(int[] nums, int start, int end) {
+        if(start >= end){
             return;
         }
-        int pivot = array[(left+right)/2];
-        int index = partition(array, pivot, left, right);
-        quicksort(array, left, index - 1);
-        quicksort(array, index, right);
+        int pivot = nums[(start + end) / 2];
+        int partition = sortPartition(nums, pivot, start, end);
+        quickSort(nums, start, partition-1);
+        quickSort(nums, partition, end);
     }
 
-    private int partition(int[] array, int pivot, int left, int right) {
+    public int sortPartition(int[] nums, int pivot, int start, int end) {
 
-        while (left <= right) {
-            while (array[left] < pivot)
-                left++;
-            while (array[right] > pivot)
-                right--;
-            if (left <= right) {
-                swap(array, left, right);
-                left++;
-                right--;
+        while(start <= end) {
+            while(nums[start] < pivot) {
+                start++;
+            }
+            while(nums[end] > pivot) {
+                end--;
+            }
+            if (start <= end) {
+                swap(nums, start, end);
+                start++;
+                end--;
             }
         }
-        return left;
+        return start;
+    }
+
+    public void swap(int[] nums, int start, int end) {
+
+        int temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
     }
 
     private static void printArray(int[] input) {
@@ -46,11 +56,5 @@ public class QuickSortDifferent {
             System.out.print(i);
             System.out.print(" ");
         }
-    }
-
-    private static void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
     }
 }

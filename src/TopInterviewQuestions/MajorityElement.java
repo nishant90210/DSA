@@ -1,5 +1,7 @@
 package TopInterviewQuestions;
 
+import java.util.Arrays;
+
 /**
  * Created by NISHANT on 4/5/18.
  */
@@ -9,6 +11,7 @@ public class MajorityElement {
     public static void main(String[] args)
     {
         int a[] = new int[]{1,3,4,4,1,4,4};
+        Arrays.sort(a);
 //        int a[] = new int[]{1, 3, 3, 1, 2};
         int size = a.length;
         int candidate = printMajority(a, size);

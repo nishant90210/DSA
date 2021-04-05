@@ -1,46 +1,41 @@
 package Tree;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by NISHANT on 11/1/17.
  */
 //LCA in BINARY TREE
-public class LowestCommonAncestorBT {
+public class LowestCommonAncestorBST {
+
+    static class Node {
+        int val;
+        public Node left;
+        Node right;
+        Node(int x) { val = x; }
+    }
 
     public static void main(String[] args) {
 
-        BinaryTree binaryTree = new BinaryTree();
-        binaryTree.add(40);
-        binaryTree.add(20);
-        binaryTree.add(60);
-        binaryTree.add(10);
-        binaryTree.add(30);
-        binaryTree.add(50);
-        binaryTree.add(70);
-        binaryTree.add(5);
-        binaryTree.add(55);
+        Node root = new Node(6);
+        root.left = new Node(2);
+        root.right = new Node(8);
+        root.right.left = new Node(7);
+        root.right.right = new Node(9);
+        root.left.left = new Node(0);
+        root.left.right = new Node(4);
+        root.left.right.left = new Node(3);
+        root.left.right.right = new Node(5);
 
-        System.out.println(findLCA(binaryTree.root, 5, 30).data);
+        System.out.println(lowestCommonAncestor(root, 8, 9).val);
     }
 
-    private static Node findLCA(Node root, int phal, int phool) {
+    private static Node lowestCommonAncestor(Node root, int phal, int phool) {
 
-        if (root == null){
-            return null;
+        if (phal < root.val && phool < root.val){
+            return lowestCommonAncestor(root.left, phal, phool);
         }
-        if (root.data == phal || root.data == phool){
-            return root;
+        if (phal > root.val && phool > root.val){
+            return lowestCommonAncestor(root.right, phal, phool);
         }
-        Node left = findLCA(root.left, phal, phool);
-        Node right = findLCA(root.right, phal, phool);
-        if(left == null){
-            return right;
-        } else if(right == null){
-            return left;
-        }else{
-            return root;
-        }
+        return root;
     }
 }

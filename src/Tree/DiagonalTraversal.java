@@ -23,8 +23,7 @@ public class DiagonalTraversal {
         root.left.right.right = new Node(7);
 
         Map<Integer, ArrayList<Integer>> valueMap = new HashMap<>();
-        Node node = root;
-        diagonalTraversal(0, valueMap, node);
+        diagonalTraversal(0, valueMap, root);
         for (Map.Entry entry : valueMap.entrySet()){
             System.out.println(entry.getValue());
         }
@@ -35,61 +34,21 @@ public class DiagonalTraversal {
         if (root == null){
             return;
         }
-        ArrayList<Integer> keyVal = valueMap.get(d);
-        if (keyVal == null){
-            keyVal = new ArrayList<>();
-            keyVal.add(root.data);
-        } else {
-            keyVal.add(root.data);
+        //mapKey is the level with which we will put the values
+        //like with 0 --> 8 , 10 , 14
+        // with 1 --> 3, 6, 7, 13 ,etc
+        ArrayList<Integer> mapKey = valueMap.get(d);
+        if (mapKey == null){
+            mapKey = new ArrayList<>();
         }
-        valueMap.put(d, keyVal);
-
+        mapKey.add(root.data);
+        valueMap.put(d, mapKey);
         /* d will increment by 1 i.e. d = d + 1, only for the left child
-        * and will remain same as of the parent i.e. d = d of parent for every right child
-        * SO the same value of d will correspond to the same diagonal*/
-        diagonalTraversal(d+1, valueMap, root.left);
+         * and will remain same as of the parent i.e. d = d of parent for every right child
+         * SO the same value of d will correspond to the same diagonal
+         */
+        diagonalTraversal(d + 1, valueMap, root.left);
         diagonalTraversal(d, valueMap, root.right);
+        return;
     }
-
-    /*    BAKWASSS HAI YEEEE     */
-
-
-//    private static void diagonalPrint(Node root) {
-//
-//        Queue<Node> q1 = new LinkedList();
-//        Queue<Node> q2 = new LinkedList();
-//        Queue<Node> q3 = new LinkedList();
-//        Node node = root;
-//
-//        addToQueue(q1, node);
-//        printQueue(q1);
-//        System.out.println();
-//        while (!q1.isEmpty()){
-//            Node leftNode = q1.peek().left;
-//            addToQueue(q2, leftNode);
-//            q1.remove();
-//        }
-//        printQueue(q2);
-//        System.out.println();
-//        while (!q2.isEmpty()){
-//            Node leftNode = q2.peek().left;
-//            addToQueue(q3, leftNode);
-//            q2.remove();
-//        }
-//        printQueue(q3);
-//    }
-//
-//    private static void addToQueue(Queue<Node> queue, Node node) {
-//        while (node != null){
-//            queue.add(node);
-//            node = node.right;
-//        }
-//    }
-//
-//    private static void printQueue(Queue<Node> queue) {
-//
-//        for (Node s : queue) {
-//            System.out.print(" " + s.data);
-//        }
-//    }
 }

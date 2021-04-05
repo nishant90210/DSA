@@ -30,11 +30,11 @@ public class BSTFromSortedLL {
         printll(head);
 
         int size = calculateSizeOfll(head);
-//        System.out.println(size);
-        int[] arr = {-10,-3,0,5,9};
+//        System.out.println("Size = " + size);
+//        int[] arr = {-10,-3,0,5,9};
         int start = 0;
-        int length = arr.length;
-        Node node = llist.buildTree(arr, start, length-1);
+//        int length = arr.length;
+        Node node = llist.buildTree(start, size-1);
         System.out.println();
         System.out.println("Printing the pre order ");
         llist.printPreOrder(node);
@@ -43,6 +43,33 @@ public class BSTFromSortedLL {
         llist.printInOrder(node);
 
     }
+
+    private Node buildTree(int start, int end) {
+
+        if (start > end)
+            return null;
+
+        // mid
+        int mid = (start + end) / 2;
+
+        //create left node
+        Node left = buildTree(start, mid - 1);
+        Node root = new Node(head.data);
+
+        //connect left node to root
+        root.left = left;
+
+        head = head.next;
+
+        //create right node
+        Node right = buildTree(mid + 1, end);
+
+        //connect right node to root
+        root.right = right;
+
+        return root;
+    }
+
 
     private void printInOrder(Node node) {
 
@@ -60,15 +87,10 @@ public class BSTFromSortedLL {
 
     private static int calculateSizeOfll(LNode head) {
 
-        int count = 0;
-        if (head == null){
-            return count;
+        if (head == null) {
+            return 0;
         }
-        while (head != null){
-            count++;
-            head = head.next;
-        }
-        return count;
+        return 1 + calculateSizeOfll(head.next);
     }
 
     private static void printll(LNode llist) {
@@ -104,22 +126,22 @@ public class BSTFromSortedLL {
             }
         }
     }
-
-    private Node buildTree(int[] arr, int start, int end) {
-
-        if (start > end){
-            return null;
-        }
-        // Same as (low + high)/2, but avoids overflow for
-        // large low and high
-        // int mid = low + (high - low) / 2;
-        int mid = (start + end) / 2;
-        Node node = new Node(arr[mid]);
-        node.left = buildTree(arr, start, mid-1);
-        node.right = buildTree(arr, mid+1, end);
-        System.out.println();
-        return node;
-    }
+//
+//    private Node buildTree(int[] arr, int start, int end) {
+//
+//        if (start > end){
+//            return null;
+//        }
+//        // Same as (low + high)/2, but avoids overflow for
+//        // large low and high
+//        // int mid = low + (high - low) / 2;
+//        int mid = (start + end) / 2;
+//        Node node = new Node(arr[mid]);
+//        node.left = buildTree(arr, start, mid-1);
+//        node.right = buildTree(arr, mid+1, end);
+//        System.out.println();
+//        return node;
+//    }
 
     //Bottom up approach for BST
 //    private Node buildTree(int size) {

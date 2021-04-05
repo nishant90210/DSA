@@ -47,7 +47,7 @@ public class LinkedListPalindrome {
             System.out.println("Empty List");
         }else {
             while (temp != null){
-                System.out.println(temp.data);
+                System.out.print(temp.data + " ");
                 temp = temp.next;
             }
         }
@@ -110,17 +110,10 @@ public class LinkedListPalindrome {
             }
         }
         /* Both are empty return true*/
-        if (node1 == null && node2 == null)
+        if (node1 == null && node2 == null) {
             return true;
-
+        }
         /* Will reach here when one is NULL and other is not */
-        return false;
-    }
-
-//  TODO
-    public boolean isPlaindromeRecursively(Node node){
-
-
         return false;
     }
 }

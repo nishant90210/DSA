@@ -4,8 +4,7 @@ import java.util.Arrays;
 
 public class Merge2SortedArray {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         int arr1[] = new int[]{1, 5, 9, 10, 15, 20};
         int arr2[] = new int[]{2, 3, 8, 13};
         merge(arr1, arr2);
@@ -15,28 +14,32 @@ public class Merge2SortedArray {
         System.out.println(Arrays.toString(arr2));
     }
 
-    public static void merge(int arr1[], int arr2[] ) {
+    private static void merge(int[] arr1, int[] arr2) {
+        int length1 = arr1.length - 1;
+        int length2 = arr2.length - 1;
 
-        int i = arr2.length-1;
-        int size = arr1.length-1;
-        while (i >= 0 ) {
-            // Checking second array element with first array last element.
-            if (arr1[size] > arr2[i]) {
-                int temp = arr2[i];
-                arr2[i] = arr1[size];
-                sortFirstArray(arr1, temp);
+        while (length2 >= 0) {
+            if (arr1[length1] > arr2[length2]) {
+                int temp = arr2[length2];
+                arr2[length2] = arr1[length1];
+                sortFirstArrayAfterSwap(arr1, temp);
+                length2--;
             }
-            i--;
         }
     }
 
-    public static void  sortFirstArray(int arr1[], int temp) {
-        int i = arr1.length-1;
-        while (i > 0 &&  arr1[i-1] > temp) {
-            arr1[i] = arr1[i-1];
-            i--;
+    private static void sortFirstArrayAfterSwap(int[] arr1, int temp) {
+
+        int i = arr1.length - 1;
+        while (i >= 0) {
+            if (arr1[i] > temp) {
+                arr1[i] = arr1[i - 1];
+                i--;
+            } else {
+                arr1[i+1] = temp;
+                break;
+            }
         }
-        arr1[i] = temp;
     }
 
 //    static void merge(int arr1Length, int arr2Length, int[] arr1, int[] arr2)
